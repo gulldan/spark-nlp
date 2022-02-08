@@ -27,7 +27,8 @@
 <meta name="msapplication-TileColor" content="#ffc40d"><meta name="msapplication-config" content="/assets/browserconfig.xml">
 
 <meta name="theme-color" content="#ffffff">
-<!-- end favicons snippet --><link rel="stylesheet" href="/assets/css/main.css"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" ><!-- start custom head snippets -->
+<!-- end favicons snippet --><link rel="stylesheet" href="/assets/css/main.css"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" >
+<link rel="stylesheet" href="/static/models.css" /><!-- start custom head snippets -->
  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"> 
  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 <!-- end custom head snippets -->
@@ -449,10 +450,16 @@
         <a href="/resolve_entities_codes">Resolve Entities to Codes</a>
       </li>
       <li      >
-        <a href="/recognize_social_determinants">Recognize Social Determinants</a>
+        <a href="/extract_relationships">Extract Relationships</a>
       </li>
       <li      >
-        <a href="/extract_relationships">Extract Relationships</a>
+        <a href="/radiology">Radiology</a>
+      </li>
+      <li      >
+        <a href="/oncology">Oncology</a>
+      </li>
+      <li      >
+        <a href="/social_determinants">Social Determinants</a>
       </li>
       <li      >
         <a href="/split_clean_medical_text">Split &amp; Clean Medical Text</a>
@@ -495,7 +502,7 @@
 
               <div class="col-main cell cell--auto"><!-- start custom main top snippet -->
 
-<!-- end custom main top snippet --><article itemscope itemtype="http://schema.org/WebPage"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script><div class="article__header"><header><h1>Spark NLP in Action</h1></header></div><meta itemprop="headline" content="Spark NLP in Action"><meta itemprop="author" content=""/><div class="js-article-content"><!-- Do not use auto intent in this file. -->
+<!-- end custom main top snippet --><article itemscope itemtype="http://schema.org/WebPage"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script><div class="article__header"><header class="main-docs"><h1>Spark NLP in Action</h1></header></div><meta itemprop="headline" content="Spark NLP in Action"><meta itemprop="author" content=""/><div class="js-article-content"><!-- Do not use auto intent in this file. -->
 <div class="layout--landing"><div class="demopage"><section class="hero section-row hero--center" id="hero-1">
 
       <div class="">
@@ -527,6 +534,15 @@
                   </figure><div class="tab-item-title">Detect Tumor Characteristics in Spanish medical texts</div><div class="tab-description">This demo shows how to detect tumor characteristics (morphology) in Spanish medical texts.</div><ul class="tab-menu"><li><a id="detect_tumor_characteristics_spanish_medical_texts" class="button button--normal button--pill button--lg"
                       href="https://demo.johnsnowlabs.com/healthcare/NER_TUMOR_ES/">Live Demo</a></li><li><a id="detect_tumor_characteristics_spanish_medical_texts" class="button button--blue_btn button--pill button--lg"
                       href="https://colab.research.google.com/github/JohnSnowLabs/spark-nlp-workshop/blob/master/tutorials/streamlit_notebooks/healthcare/NER_TUMOR_ES.ipynb">Colab Netbook</a></li></ul></div> 
+            </div><div class="tab-item ">
+              <div class="tab-item-inner"><figure class="tab_fig_blue">
+                    <img src="/assets/images/Map_clinical_terminology_to_SNOMED_taxonomy_in_Spanish.svg" />
+                  </figure>
+                  <figure class="tab_fig_white">
+                    <img src="/assets/images/Map_clinical_terminology_to_SNOMED_taxonomy_in_Spanish_f.svg" />
+                  </figure><div class="tab-item-title">Map clinical terminology to SNOMED taxonomy in Spanish</div><div class="tab-description">This model maps healthcare information in Spanish to SNOMED codes using Entity Resolvers.</div><ul class="tab-menu"><li><a id="map_clinical_terminology_SNOMED_taxonomy_Spanish" class="button button--normal button--pill button--lg"
+                      href="https://demo.johnsnowlabs.com/healthcare/ER_SNOMED_ES">Live Demo</a></li><li><a id="map_clinical_terminology_SNOMED_taxonomy_Spanish" class="button button--blue_btn button--pill button--lg"
+                      href="https://colab.research.google.com/github/JohnSnowLabs/spark-nlp-workshop/blob/master/tutorials/streamlit_notebooks/healthcare/ER_SNOMED_ES.ipynb">Colab Netbook</a></li></ul></div> 
             </div></div></div></div> </section></div>
 </div>
 
@@ -538,7 +554,7 @@
 <footer class="footer py-4 js-page-footer">
   <div class="main"><div itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content=""><meta itemprop="url" content="/"></div><div class="site-info mt-2">
-      <div>© 2021 John Snow Labs Inc.
+      <div>© 2022 John Snow Labs Inc.
         <a href="http://www.johnsnowlabs.com/terms-of-service">Terms of Service</a> | <a href="http://www.johnsnowlabs.com/privacy-policy/">Privacy Policy</a>
       </div>
     </div>
