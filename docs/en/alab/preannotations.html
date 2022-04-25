@@ -547,6 +547,16 @@
 <p>In the below example we are reusing the posology model that comes with 7 labels related to drugs.<br />
 <img class="image image--xl" src="/assets/images/annotation_lab/spark_nlp_models.png" style="width:100%; align:center; box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);" /></p>
 
+<h3 id="start-preannotation">Start Preannotation</h3>
+
+<p>Since Annotation Lab 3.0.0 multiple preannotation servers can be available to preannotate the tasks from a project. The dialog box that opens when clicking the Preannotate button on the Tasks page has been extended with new options. Namely, Project Owners or Managers can now select the server to use. At that point information about the configuration deployed on the selected server will be shown on the popup so users can make an informed decision on which server to use.</p>
+
+<p>In case the target preannotation server does not exist yet, the dialog box also offers the option to deploy a new server with the current project’s configuration. If this option is selected, and if enough resources are available (infrastructure capacity and a free license if required) the server is deployed and preannotation can be started. If there are no free resources, users can delete one or several existing servers from Settings page - Server tab.</p>
+
+<p><img src="https://user-images.githubusercontent.com/26042994/161700555-1a46ef82-1ed4-41b8-b518-9c97767b1469.gif" alt="preannotation_dialog" /></p>
+
+<p>Concurrency is not only supported between preannotation servers but between training and preannotation too. Users can have training running on one project and preannotation running on another project at the same time.</p>
+
 <h2 id="pipeline-limitations">Pipeline Limitations</h2>
 
 <p>Loading too many models in the preannotation server is not memory efficient and may not be practically required. Starting from version 1.8.0, Annotation Lab supports maximum of five different models to be used for the preannotation server deployment.
@@ -555,7 +565,7 @@ The Labeling Config will throw validation errors in any of the cases above and h
 
 <p><img class="image image--xl" src="/assets/images/annotation_lab/1.8.0/5_models.png" style="width:100%; align:center; box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);" /></p>
 </div><div class="d-print-none"><footer class="article__footer"><span class="footer_date">Last updated
-      <time itemprop="dateModified" datetime="2021-05-11T00:00:00+00:00">May 11, 2021</time>
+      <time itemprop="dateModified" datetime="2022-04-05T00:00:00+00:00">Apr 05, 2022</time>
     </span><!-- start custom article footer snippet -->
 
 <!-- end custom article footer snippet --></footer>
