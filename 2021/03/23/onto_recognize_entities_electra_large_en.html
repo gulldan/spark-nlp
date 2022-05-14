@@ -404,7 +404,13 @@
 
               <div class="col-main cell cell--auto"><!-- start custom main top snippet -->
 
-<!-- end custom main top snippet --><article><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script><div class="article__header"><div class="header-author"><div class="article__info clearfix"><ul class="right-col menu"><li><i class="far fa-user"></i> <span>John Snow Labs</span></li><li><i class="far fa-calendar-alt"></i> <span>Mar 23, 2021</span>
+<!-- end custom main top snippet --><article><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script><div class="article__header"><div class="header-author"><div class="article__info clearfix"><div class="left-col">
+            <a class="edit-on-github-btn" target="_blank" rel="alternate"
+               href="https://github.com/johnsnowlabs/spark-nlp/tree/master/docs/_posts/C-K-Loan/2021-03-23-onto_recognize_entities_electra_large_en.md">
+              <span class="fab fa-github"></span>
+              <span class="edit-on-github-label">Edit on GitHub</span>
+            </a>
+        </div><ul class="right-col menu"><li><i class="far fa-user"></i> <span>John Snow Labs</span></li><li><i class="far fa-calendar-alt"></i> <span>Mar 23, 2021</span>
             </li></ul></div><meta itemprop="author" content=""/><meta itemprop="datePublished" content="2021-03-23T00:00:00+00:00"></div><header class="main-docs"><h1>Recognize Entities OntoNotes pipeline - ELECTRA Large</h1></header></div><meta itemprop="headline" content="Recognize Entities OntoNotes pipeline - ELECTRA Large"><div class="article__info tags_box clearfix"><ul class="left-col menu"><li>open_source</li><li>english</li><li>onto_recognize_entities_electra_large</li><li>pipeline</li><li>en</li></ul></div><meta itemprop="author" content=""/><meta itemprop="datePublished" content="2021-03-23T00:00:00+00:00">
     <meta itemprop="keywords" content="open_source,english,onto_recognize_entities_electra_large,pipeline,en"><div class="js-article-content"><div class="model-wrap"><div class="layout--article"><!-- start custom article top snippet -->
 
@@ -425,9 +431,9 @@
     <button class="tab-li code-selector-active python-button">Python</button><button class="tab-li code-selector-un-active scala-button">Scala</button><button class="tab-li code-selector-un-active nlu-button">NLU</button>
 </div>
   <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="kn">from</span> <span class="nn">sparknlp.pretrained</span> <span class="kn">import</span> <span class="n">PretrainedPipelinein</span>
+<span class="kn">from</span> <span class="nn">sparknlp.pretrained</span> <span class="kn">import</span> <span class="n">PretrainedPipeline</span>
 <span class="n">pipeline</span> <span class="o">=</span> <span class="n">PretrainedPipeline</span><span class="p">(</span><span class="s">'onto_recognize_entities_electra_large'</span><span class="p">,</span> <span class="n">lang</span> <span class="o">=</span> <span class="s">'en'</span><span class="p">)</span>
-<span class="n">annotations</span> <span class="o">=</span>  <span class="n">pipeline</span><span class="p">.</span><span class="n">fullAnnotate</span><span class="p">(</span><span class="s">""</span><span class="n">Hello</span> <span class="k">from</span> <span class="n">John</span> <span class="n">Snow</span> <span class="n">Labs</span> <span class="err">!</span> <span class="s">""</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">annotations</span> <span class="o">=</span>  <span class="n">pipeline</span><span class="p">.</span><span class="n">fullAnnotate</span><span class="p">(</span><span class="s">"Hello from John Snow Labs!"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">annotations</span><span class="p">.</span><span class="n">keys</span><span class="p">()</span>
 
 </code></pre></div>  </div>
