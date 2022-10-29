@@ -9,7 +9,9 @@
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-59JLR64');</script>
-<!-- End Google Tag Manager --><title>RoBERTa Token Classification Large - NER OntoNotes (roberta_large_token_classifier_ontonotes)- Spark NLP Model</title><meta name="description" content="DescriptionRoBERTa Model with a token classification head on top (a linear layer on top of the hidden-states output) e.g. for Named-Entity-Recognition (NER) ...">
+<!-- End Google Tag Manager --><title>RoBERTa Token Classification Large - NER OntoNotes (roberta_large_token_classifier_ontonotes)</title><meta property="og:title" content=""/>
+
+<meta name="description" content="DescriptionRoBERTa Model with a token classification head on top (a linear layer on top of the hidden-states output) e.g. for Named-Entity-Recognition (NER) tasks.roberta_large_token_classifier_ontonotes is a fine-tuned RoBERTa model that is ready to use for Named Entity Recognition and achieves state-of-the-art per...">
 <link rel="canonical" href="/2021/09/26/roberta_large_token_classifier_ontonotes_en.html"><link rel="alternate" type="application/rss+xml" title="Spark NLP" href="/feed.xml"><!-- start favicons snippet, use https://realfavicongenerator.net/ -->
 <!---->
 <!-- <link rel="apple-touch-icon" sizes="180x180" href="/fav.ico"> -->
@@ -411,7 +413,8 @@
               <span class="edit-on-github-label">Edit on GitHub</span>
             </a>
         </div><ul class="right-col menu"><li><i class="far fa-user"></i> <span>John Snow Labs</span></li><li><i class="far fa-calendar-alt"></i> <span>Sep 26, 2021</span>
-            </li></ul></div><meta itemprop="author" content=""/><meta itemprop="datePublished" content="2021-09-26T00:00:00+00:00"></div><header class="main-docs"><h1>RoBERTa Token Classification Large - NER OntoNotes (roberta_large_token_classifier_ontonotes)</h1></header></div><meta itemprop="headline" content="RoBERTa Token Classification Large - NER OntoNotes (roberta_large_token_classifier_ontonotes)"><div class="article__info tags_box clearfix"><ul class="left-col menu"><li>ner</li><li>ontonotes</li><li>open_source</li><li>token_classification</li><li>en</li><li>english</li><li>roberta</li></ul></div><meta itemprop="author" content=""/><meta itemprop="datePublished" content="2021-09-26T00:00:00+00:00">
+            </li></ul></div><meta itemprop="author" content=""/><meta itemprop="datePublished" content="2021-09-26T00:00:00+00:00"></div><header class="main-docs have_subtitle">
+          <h1>RoBERTa Token Classification Large - NER OntoNotes (roberta_large_token_classifier_ontonotes)</h1><div class="top-subtitle mont"></div></header></div><meta itemprop="headline" content="RoBERTa Token Classification Large - NER OntoNotes (roberta_large_token_classifier_ontonotes)"><div class="article__info tags_box clearfix"><ul class="left-col menu"><li>ner</li><li>ontonotes</li><li>open_source</li><li>token_classification</li><li>en</li><li>english</li><li>roberta</li></ul></div><meta itemprop="author" content=""/><meta itemprop="datePublished" content="2021-09-26T00:00:00+00:00">
     <meta itemprop="keywords" content="ner,ontonotes,open_source,token_classification,en,english,roberta"><div class="js-article-content"><div class="model-wrap"><div class="layout--article"><!-- start custom article top snippet -->
 
 <!-- end custom article top snippet --><div class="article__content" itemprop="articleBody"><h2 id="description">Description</h2>
@@ -434,56 +437,56 @@
 
 <div class="tabs-box">
   <div class="top_tab_li">   
-    <button class="tab-li code-selector-active python-button">Python</button><button class="tab-li code-selector-un-active scala-button">Scala</button><button class="tab-li code-selector-un-active nlu-button">NLU</button>
+    <p><button data-type="python" class="tab-li code-selector-active python-button">Python</button><button data-type="scala" class="tab-li code-selector-un-active scala-button">Scala</button><button data-type="nlu" class="tab-li code-selector-un-active nlu-button">NLU</button></p>
 </div>
   <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">document_assembler</span> <span class="o">=</span> <span class="n">DocumentAssembler</span><span class="p">()</span> \
-    <span class="p">.</span><span class="n">setInputCol</span><span class="p">(</span><span class="s">'text'</span><span class="p">)</span> \
-    <span class="p">.</span><span class="n">setOutputCol</span><span class="p">(</span><span class="s">'document'</span><span class="p">)</span>
+<span class="p">.</span><span class="n">setInputCol</span><span class="p">(</span><span class="s">'text'</span><span class="p">)</span> \
+<span class="p">.</span><span class="n">setOutputCol</span><span class="p">(</span><span class="s">'document'</span><span class="p">)</span>
 
 <span class="n">tokenizer</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">()</span> \
-    <span class="p">.</span><span class="n">setInputCols</span><span class="p">([</span><span class="s">'document'</span><span class="p">])</span> \
-    <span class="p">.</span><span class="n">setOutputCol</span><span class="p">(</span><span class="s">'token'</span><span class="p">)</span>
+<span class="p">.</span><span class="n">setInputCols</span><span class="p">([</span><span class="s">'document'</span><span class="p">])</span> \
+<span class="p">.</span><span class="n">setOutputCol</span><span class="p">(</span><span class="s">'token'</span><span class="p">)</span>
 
 <span class="n">tokenClassifier</span> <span class="o">=</span> <span class="n">RoBertaForTokenClassification</span> \
-      <span class="p">.</span><span class="n">pretrained</span><span class="p">(</span><span class="s">'roberta_large_token_classifier_ontonotes'</span><span class="p">,</span> <span class="s">'en'</span><span class="p">)</span> \
-      <span class="p">.</span><span class="n">setInputCols</span><span class="p">([</span><span class="s">'token'</span><span class="p">,</span> <span class="s">'document'</span><span class="p">])</span> \
-      <span class="p">.</span><span class="n">setOutputCol</span><span class="p">(</span><span class="s">'ner'</span><span class="p">)</span> \
-      <span class="p">.</span><span class="n">setCaseSensitive</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span> \
-      <span class="p">.</span><span class="n">setMaxSentenceLength</span><span class="p">(</span><span class="mi">512</span><span class="p">)</span>
+<span class="p">.</span><span class="n">pretrained</span><span class="p">(</span><span class="s">'roberta_large_token_classifier_ontonotes'</span><span class="p">,</span> <span class="s">'en'</span><span class="p">)</span> \
+<span class="p">.</span><span class="n">setInputCols</span><span class="p">([</span><span class="s">'token'</span><span class="p">,</span> <span class="s">'document'</span><span class="p">])</span> \
+<span class="p">.</span><span class="n">setOutputCol</span><span class="p">(</span><span class="s">'ner'</span><span class="p">)</span> \
+<span class="p">.</span><span class="n">setCaseSensitive</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span> \
+<span class="p">.</span><span class="n">setMaxSentenceLength</span><span class="p">(</span><span class="mi">512</span><span class="p">)</span>
 
 <span class="c1"># since output column is IOB/IOB2 style, NerConverter can extract entities
 </span><span class="n">ner_converter</span> <span class="o">=</span> <span class="n">NerConverter</span><span class="p">()</span> \
-    <span class="p">.</span><span class="n">setInputCols</span><span class="p">([</span><span class="s">'document'</span><span class="p">,</span> <span class="s">'token'</span><span class="p">,</span> <span class="s">'ner'</span><span class="p">])</span> \
-    <span class="p">.</span><span class="n">setOutputCol</span><span class="p">(</span><span class="s">'entities'</span><span class="p">)</span>
+<span class="p">.</span><span class="n">setInputCols</span><span class="p">([</span><span class="s">'document'</span><span class="p">,</span> <span class="s">'token'</span><span class="p">,</span> <span class="s">'ner'</span><span class="p">])</span> \
+<span class="p">.</span><span class="n">setOutputCol</span><span class="p">(</span><span class="s">'entities'</span><span class="p">)</span>
 
 <span class="n">pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">stages</span><span class="o">=</span><span class="p">[</span>
-    <span class="n">document_assembler</span><span class="p">,</span> 
-    <span class="n">tokenizer</span><span class="p">,</span>
-    <span class="n">tokenClassifier</span><span class="p">,</span>
-    <span class="n">ner_converter</span>
+<span class="n">document_assembler</span><span class="p">,</span> 
+<span class="n">tokenizer</span><span class="p">,</span>
+<span class="n">tokenClassifier</span><span class="p">,</span>
+<span class="n">ner_converter</span>
 <span class="p">])</span>
 
 <span class="n">example</span> <span class="o">=</span> <span class="n">spark</span><span class="p">.</span><span class="n">createDataFrame</span><span class="p">([[</span><span class="s">'My name is John!'</span><span class="p">]]).</span><span class="n">toDF</span><span class="p">(</span><span class="s">"text"</span><span class="p">)</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">example</span><span class="p">).</span><span class="n">transform</span><span class="p">(</span><span class="n">example</span><span class="p">)</span>
 </code></pre></div>  </div>
   <div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">val</span> <span class="nv">document_assembler</span> <span class="k">=</span> <span class="nc">DocumentAssembler</span><span class="o">()</span> 
-    <span class="o">.</span><span class="py">setInputCol</span><span class="o">(</span><span class="s">"text"</span><span class="o">)</span> 
-    <span class="o">.</span><span class="py">setOutputCol</span><span class="o">(</span><span class="s">"document"</span><span class="o">)</span>
+<span class="o">.</span><span class="py">setInputCol</span><span class="o">(</span><span class="s">"text"</span><span class="o">)</span> 
+<span class="o">.</span><span class="py">setOutputCol</span><span class="o">(</span><span class="s">"document"</span><span class="o">)</span>
 
 <span class="k">val</span> <span class="nv">tokenizer</span> <span class="k">=</span> <span class="nc">Tokenizer</span><span class="o">()</span> 
-    <span class="o">.</span><span class="py">setInputCols</span><span class="o">(</span><span class="s">"document"</span><span class="o">)</span> 
-    <span class="o">.</span><span class="py">setOutputCol</span><span class="o">(</span><span class="s">"token"</span><span class="o">)</span>
+<span class="o">.</span><span class="py">setInputCols</span><span class="o">(</span><span class="s">"document"</span><span class="o">)</span> 
+<span class="o">.</span><span class="py">setOutputCol</span><span class="o">(</span><span class="s">"token"</span><span class="o">)</span>
 
 <span class="k">val</span> <span class="nv">tokenClassifier</span> <span class="k">=</span> <span class="nv">RoBertaForTokenClassification</span><span class="o">.</span><span class="py">pretrained</span><span class="o">(</span><span class="s">"roberta_large_token_classifier_ontonotes"</span><span class="o">,</span> <span class="s">"en"</span><span class="o">)</span>
-      <span class="o">.</span><span class="py">setInputCols</span><span class="o">(</span><span class="s">"document"</span><span class="o">,</span> <span class="s">"token"</span><span class="o">)</span>
-      <span class="o">.</span><span class="py">setOutputCol</span><span class="o">(</span><span class="s">"ner"</span><span class="o">)</span>
-      <span class="o">.</span><span class="py">setCaseSensitive</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span>
-      <span class="o">.</span><span class="py">setMaxSentenceLength</span><span class="o">(</span><span class="mi">512</span><span class="o">)</span>
+<span class="o">.</span><span class="py">setInputCols</span><span class="o">(</span><span class="s">"document"</span><span class="o">,</span> <span class="s">"token"</span><span class="o">)</span>
+<span class="o">.</span><span class="py">setOutputCol</span><span class="o">(</span><span class="s">"ner"</span><span class="o">)</span>
+<span class="o">.</span><span class="py">setCaseSensitive</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span>
+<span class="o">.</span><span class="py">setMaxSentenceLength</span><span class="o">(</span><span class="mi">512</span><span class="o">)</span>
 
 <span class="c1">// since output column is IOB/IOB2 style, NerConverter can extract entities</span>
 <span class="k">val</span> <span class="nv">ner_converter</span> <span class="k">=</span> <span class="nc">NerConverter</span><span class="o">()</span> 
-    <span class="o">.</span><span class="py">setInputCols</span><span class="o">(</span><span class="s">"document"</span><span class="o">,</span> <span class="s">"token"</span><span class="o">,</span> <span class="s">"ner"</span><span class="o">)</span> 
-    <span class="o">.</span><span class="py">setOutputCol</span><span class="o">(</span><span class="s">"entities"</span><span class="o">)</span>
+<span class="o">.</span><span class="py">setInputCols</span><span class="o">(</span><span class="s">"document"</span><span class="o">,</span> <span class="s">"token"</span><span class="o">,</span> <span class="s">"ner"</span><span class="o">)</span> 
+<span class="o">.</span><span class="py">setOutputCol</span><span class="o">(</span><span class="s">"entities"</span><span class="o">)</span>
 
 <span class="k">val</span> <span class="nv">pipeline</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">Pipeline</span><span class="o">().</span><span class="py">setStages</span><span class="o">(</span><span class="nc">Array</span><span class="o">(</span><span class="n">document_assembler</span><span class="o">,</span> <span class="n">tokenizer</span><span class="o">,</span> <span class="n">tokenClassifier</span><span class="o">,</span> <span class="n">ner_converter</span><span class="o">))</span>
 
@@ -491,15 +494,20 @@
 
 <span class="k">val</span> <span class="nv">result</span> <span class="k">=</span> <span class="nv">pipeline</span><span class="o">.</span><span class="py">fit</span><span class="o">(</span><span class="n">example</span><span class="o">).</span><span class="py">transform</span><span class="o">(</span><span class="n">example</span><span class="o">)</span>
 </code></pre></div>  </div>
+
+  <div class="language-python nlu-block highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">nlu</span>
+<span class="n">nlu</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s">"en.classify.token_roberta.large_token_classifier_ontonotes"</span><span class="p">).</span><span class="n">predict</span><span class="p">(</span><span class="s">"""My name is John!"""</span><span class="p">)</span>
+</code></pre></div>  </div>
+
 </div>
 
 <h2 id="results">Results</h2>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>+------------------------------------------------------------------------------------+
- |result                                                                              |
- +------------------------------------------------------------------------------------+
- |[B-PERSON, I-PERSON, O, O, O, B-LOC, O, O, O, B-LOC, O, O, O, O, B-PERSON, O, O, O, O, B-LOC]|
- +------------------------------------------------------------------------------------+
+|result                                                                              |
++------------------------------------------------------------------------------------+
+|[B-PERSON, I-PERSON, O, O, O, B-LOC, O, O, O, B-LOC, O, O, O, O, B-PERSON, O, O, O, O, B-LOC]|
++------------------------------------------------------------------------------------+
 </code></pre></div></div>
 
 <h2 class="model-param" id="model-information">Model Information</h2>
@@ -551,73 +559,73 @@
 
 <h2 id="benchmarking">Benchmarking</h2>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>            precision    recall  f1-score   support
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>precision    recall  f1-score   support
 
-   B-CARDINAL       0.83      0.91      0.87       938
-       B-DATE       0.88      0.85      0.87      1507
-      B-EVENT       0.79      0.64      0.71       143
-        B-FAC       0.64      0.66      0.65       115
-        B-GPE       0.95      0.89      0.92      2268
-   B-LANGUAGE       0.96      0.73      0.83        33
-        B-LAW       0.77      0.75      0.76        40
-        B-LOC       0.72      0.77      0.75       204
-      B-MONEY       0.94      0.93      0.94       274
-       B-NORP       0.88      0.92      0.90       847
-    B-ORDINAL       0.83      0.81      0.82       232
-        B-ORG       0.87      0.88      0.88      1740
-    B-PERCENT       0.91      0.92      0.91       177
-     B-PERSON       0.92      0.95      0.94      2020
-    B-PRODUCT       0.74      0.74      0.74        72
-   B-QUANTITY       0.86      0.85      0.85       100
-       B-TIME       0.79      0.73      0.76       214
+B-CARDINAL       0.83      0.91      0.87       938
+B-DATE       0.88      0.85      0.87      1507
+B-EVENT       0.79      0.64      0.71       143
+B-FAC       0.64      0.66      0.65       115
+B-GPE       0.95      0.89      0.92      2268
+B-LANGUAGE       0.96      0.73      0.83        33
+B-LAW       0.77      0.75      0.76        40
+B-LOC       0.72      0.77      0.75       204
+B-MONEY       0.94      0.93      0.94       274
+B-NORP       0.88      0.92      0.90       847
+B-ORDINAL       0.83      0.81      0.82       232
+B-ORG       0.87      0.88      0.88      1740
+B-PERCENT       0.91      0.92      0.91       177
+B-PERSON       0.92      0.95      0.94      2020
+B-PRODUCT       0.74      0.74      0.74        72
+B-QUANTITY       0.86      0.85      0.85       100
+B-TIME       0.79      0.73      0.76       214
 B-WORK_OF_ART       0.65      0.63      0.64       142
-   I-CARDINAL       0.84      0.88      0.86       290
-       I-DATE       0.89      0.89      0.89      1809
-      I-EVENT       0.82      0.70      0.76       272
-        I-FAC       0.69      0.74      0.71       203
-        I-GPE       0.91      0.85      0.87       555
-   I-LANGUAGE       0.00      0.00      0.00         0
-        I-LAW       0.75      0.68      0.71        84
-        I-LOC       0.69      0.76      0.72       188
-      I-MONEY       0.96      0.99      0.97       587
-       I-NORP       0.78      0.66      0.72        44
-    I-ORDINAL       0.00      0.00      0.00         4
-        I-ORG       0.91      0.91      0.91      2336
-    I-PERCENT       0.90      0.97      0.94       258
-     I-PERSON       0.94      0.97      0.96      1395
-    I-PRODUCT       0.88      0.88      0.88       129
-   I-QUANTITY       0.88      0.92      0.90       209
-       I-TIME       0.75      0.74      0.75       260
+I-CARDINAL       0.84      0.88      0.86       290
+I-DATE       0.89      0.89      0.89      1809
+I-EVENT       0.82      0.70      0.76       272
+I-FAC       0.69      0.74      0.71       203
+I-GPE       0.91      0.85      0.87       555
+I-LANGUAGE       0.00      0.00      0.00         0
+I-LAW       0.75      0.68      0.71        84
+I-LOC       0.69      0.76      0.72       188
+I-MONEY       0.96      0.99      0.97       587
+I-NORP       0.78      0.66      0.72        44
+I-ORDINAL       0.00      0.00      0.00         4
+I-ORG       0.91      0.91      0.91      2336
+I-PERCENT       0.90      0.97      0.94       258
+I-PERSON       0.94      0.97      0.96      1395
+I-PRODUCT       0.88      0.88      0.88       129
+I-QUANTITY       0.88      0.92      0.90       209
+I-TIME       0.75      0.74      0.75       260
 I-WORK_OF_ART       0.65      0.75      0.70       334
-            O       0.99      0.99      0.99    127701
+O       0.99      0.99      0.99    127701
 
-     accuracy                           0.98    147724
-    macro avg       0.79      0.78      0.78    147724
- weighted avg       0.98      0.98      0.98    147724
+accuracy                           0.98    147724
+macro avg       0.79      0.78      0.78    147724
+weighted avg       0.98      0.98      0.98    147724
 
 
 
 processed 147724 tokens with 11066 phrases<span class="p">;</span> found: 11196 phrases<span class="p">;</span> correct: 9582.
 accuracy:  88.60%<span class="p">;</span> <span class="o">(</span>non-O<span class="o">)</span>
 accuracy:  97.79%<span class="p">;</span> precision:  85.58%<span class="p">;</span> recall:  86.59%<span class="p">;</span> FB1:  86.08
-         CARDINAL: precision:  81.30%<span class="p">;</span> recall:  89.45%<span class="p">;</span> FB1:  85.18  1032
-             DATE: precision:  84.09%<span class="p">;</span> recall:  83.15%<span class="p">;</span> FB1:  83.62  1490
-            EVENT: precision:  71.19%<span class="p">;</span> recall:  58.74%<span class="p">;</span> FB1:  64.37  118
-              FAC: precision:  59.68%<span class="p">;</span> recall:  64.35%<span class="p">;</span> FB1:  61.92  124
-              GPE: precision:  93.60%<span class="p">;</span> recall:  88.32%<span class="p">;</span> FB1:  90.88  2140
-         LANGUAGE: precision:  92.00%<span class="p">;</span> recall:  69.70%<span class="p">;</span> FB1:  79.31  25
-              LAW: precision:  67.50%<span class="p">;</span> recall:  67.50%<span class="p">;</span> FB1:  67.50  40
-              LOC: precision:  66.23%<span class="p">;</span> recall:  75.00%<span class="p">;</span> FB1:  70.34  231
-            MONEY: precision:  93.12%<span class="p">;</span> recall:  93.80%<span class="p">;</span> FB1:  93.45  276
-             NORP: precision:  86.77%<span class="p">;</span> recall:  91.38%<span class="p">;</span> FB1:  89.02  892
-          ORDINAL: precision:  83.26%<span class="p">;</span> recall:  81.47%<span class="p">;</span> FB1:  82.35  227
-              ORG: precision:  82.75%<span class="p">;</span> recall:  84.89%<span class="p">;</span> FB1:  83.80  1785
-          PERCENT: precision:  88.95%<span class="p">;</span> recall:  90.96%<span class="p">;</span> FB1:  89.94  181
-           PERSON: precision:  90.97%<span class="p">;</span> recall:  94.31%<span class="p">;</span> FB1:  92.61  2094
-          PRODUCT: precision:  71.05%<span class="p">;</span> recall:  75.00%<span class="p">;</span> FB1:  72.97  76
-         QUANTITY: precision:  75.47%<span class="p">;</span> recall:  80.00%<span class="p">;</span> FB1:  77.67  106
-             TIME: precision:  70.48%<span class="p">;</span> recall:  69.16%<span class="p">;</span> FB1:  69.81  210
-      WORK_OF_ART: precision:  54.36%<span class="p">;</span> recall:  57.04%<span class="p">;</span> FB1:  55.67  149
+CARDINAL: precision:  81.30%<span class="p">;</span> recall:  89.45%<span class="p">;</span> FB1:  85.18  1032
+DATE: precision:  84.09%<span class="p">;</span> recall:  83.15%<span class="p">;</span> FB1:  83.62  1490
+EVENT: precision:  71.19%<span class="p">;</span> recall:  58.74%<span class="p">;</span> FB1:  64.37  118
+FAC: precision:  59.68%<span class="p">;</span> recall:  64.35%<span class="p">;</span> FB1:  61.92  124
+GPE: precision:  93.60%<span class="p">;</span> recall:  88.32%<span class="p">;</span> FB1:  90.88  2140
+LANGUAGE: precision:  92.00%<span class="p">;</span> recall:  69.70%<span class="p">;</span> FB1:  79.31  25
+LAW: precision:  67.50%<span class="p">;</span> recall:  67.50%<span class="p">;</span> FB1:  67.50  40
+LOC: precision:  66.23%<span class="p">;</span> recall:  75.00%<span class="p">;</span> FB1:  70.34  231
+MONEY: precision:  93.12%<span class="p">;</span> recall:  93.80%<span class="p">;</span> FB1:  93.45  276
+NORP: precision:  86.77%<span class="p">;</span> recall:  91.38%<span class="p">;</span> FB1:  89.02  892
+ORDINAL: precision:  83.26%<span class="p">;</span> recall:  81.47%<span class="p">;</span> FB1:  82.35  227
+ORG: precision:  82.75%<span class="p">;</span> recall:  84.89%<span class="p">;</span> FB1:  83.80  1785
+PERCENT: precision:  88.95%<span class="p">;</span> recall:  90.96%<span class="p">;</span> FB1:  89.94  181
+PERSON: precision:  90.97%<span class="p">;</span> recall:  94.31%<span class="p">;</span> FB1:  92.61  2094
+PRODUCT: precision:  71.05%<span class="p">;</span> recall:  75.00%<span class="p">;</span> FB1:  72.97  76
+QUANTITY: precision:  75.47%<span class="p">;</span> recall:  80.00%<span class="p">;</span> FB1:  77.67  106
+TIME: precision:  70.48%<span class="p">;</span> recall:  69.16%<span class="p">;</span> FB1:  69.81  210
+WORK_OF_ART: precision:  54.36%<span class="p">;</span> recall:  57.04%<span class="p">;</span> FB1:  55.67  149
 </code></pre></div></div>
 </div><div class="d-print-none"><footer class="article__footer"><meta itemprop="dateModified" content="2021-09-26T00:00:00+00:00"><!-- start custom article footer snippet -->
 
@@ -625,7 +633,7 @@ accuracy:  97.79%<span class="p">;</span> precision:  85.58%<span class="p">;</s
 
 <script>
 
-
+/* 
 jQuery(document).ready(function(){  
     $( ".scala-button" ).click(function() {
         $(this).closest( ".tabs-box" ).find(".scala-button").removeClass('code-selector-un-active').addClass( "code-selector-active" );        
@@ -665,34 +673,248 @@ jQuery(document).ready(function(){
         $(this).closest( ".tabs-box" ).find( ".language-python, .language-scala" ).hide();
         $(this).closest( ".tabs-box" ).find( ".nlu-block" ).show();
     });
-});
+}); */
 
-function togglePython1() {
+/* function togglePython1() {
 
     //set current button to active class and remove unactive class
     $( ".python-button" ).addClass( "code-selector-active" );
 
 
     //toggle language snippets
-    $( ".tabs-box .language-python" ).show() 
-    $( ".tabs-box .nlu-block" ).hide()
-    $( ".tabs-box .language-scala" ).hide()
+    $( ".tabs-box .language-python" ).show();
+    $( ".tabs-box .nlu-block" ).hide();
+    $( ".tabs-box .language-scala" ).hide();
 }
 
 function defer(method) { //wait until jquery ready
     if (window.jQuery) {
         method();
     } else {
-        setTimeout(function() { defer(method) }, 15);
+        setTimeout(function() { defer(method); }, 15);
     }
 }
 
 defer(function () { // load inital language
-    togglePython1()
-});
+    togglePython1();
+}); */
 
 
+if((document.querySelectorAll('.model-wrap').length !== 0) || (document.querySelectorAll('.tabs-new').length !== 0)) {
 
+    let tabLi = document.querySelectorAll('.tabs-new .tab-li');
+
+    if((document.querySelectorAll('.model-wrap').length !== 0)) {
+        tabLi = document.querySelectorAll('.model-wrap .tab-li');
+    } 
+    
+    let tabLiTopF = document.querySelectorAll('.top_tab_li'),
+        pythonInner = document.querySelectorAll('.python-inner');
+
+    tabLiTopF.forEach(e => {        
+        e.nextElementSibling.classList.add('active');
+    });
+    pythonInner.forEach(e => {
+        e.firstElementChild.classList.remove('language-python');
+    });
+
+    tabLi.forEach(element => {
+        element.addEventListener('click', function(e) {
+            e.preventDefault();
+            let tabAttribute = element.getAttribute('data-type'),
+                tabLiInner = element.parentNode.querySelectorAll('.tab-li'),
+                tabBoxInner = element.parentNode.parentNode.parentNode.querySelectorAll('.highlighter-rouge');
+            
+            //remove active class from NLU
+            tabBoxInner.forEach(item => {
+                item.classList.remove('active');
+                if(item.classList.contains('nlu-block')) {
+                    item.classList.remove('language-python');
+                }  
+                
+            });
+            tabLiInner.forEach(el => {
+                el.classList.remove('active');
+                el.classList.remove('code-selector-active');
+            });
+            element.classList.add('active');
+    
+            //add active class
+            switch (tabAttribute) {
+                case "python":
+                    tabBoxInner.forEach(item => {
+                        if(item.classList.contains('language-python')) {
+                            item.classList.add('active');
+                        }                    
+                    });
+                    break;
+                case "scala":
+                    tabBoxInner.forEach(item => {
+                        if(item.classList.contains('language-scala')) {
+                            item.classList.add('active');
+                        }                    
+                    });
+                  break;
+                  case "nlu":
+                    tabBoxInner.forEach(item => {
+                        if(item.classList.contains('nlu-block')) {
+                            item.classList.add('active');
+                        }                    
+                    });
+                  break;
+                default:              
+              }
+        });
+    });
+}
+
+//Second tabs
+if(document.querySelectorAll('.tab-li-second').length !== 0) {
+    let tabLi = document.querySelectorAll('.tab-li-second');
+
+    tabLi.forEach(element => {
+        element.addEventListener('click', function(e) {
+            e.preventDefault();
+            let tabAttribute = element.getAttribute('data-type'),
+                tabLiInner = element.parentNode.querySelectorAll('.tab-li-second'),
+                tabBoxInner = element.parentNode.parentNode.parentNode.querySelectorAll('.tabs-box-medic-inner');
+            
+
+            //remove active class
+            tabBoxInner.forEach(item => {
+                item.classList.remove('active');
+            });
+            tabLiInner.forEach(el => {
+                el.classList.remove('active');
+            });
+            element.classList.add('active');
+    
+            //add active class
+            switch (tabAttribute) {
+                case "python":
+                    tabBoxInner.forEach(item => {
+                        if(item.classList.contains('language-python')) {
+                            item.classList.add('active');
+                        }                    
+                    });
+                    break;
+                case "scala":
+                    tabBoxInner.forEach(item => {
+                        if(item.classList.contains('language-scala')) {
+                            item.classList.add('active');
+                        }                    
+                    });
+                  break;
+                default:              
+              }
+        });
+    });
+}
+
+//Third tabs
+if(document.querySelectorAll('.tab-li-inner').length !== 0) {
+
+    let tabLiSecond = document.querySelectorAll('.tab-li-inner'),
+        tabLiTop = document.querySelectorAll('.toptab-second'),
+        tabLi = document.querySelectorAll('.toptab-second p');
+
+
+    tabLiTop.forEach(e => {        
+        e.nextElementSibling.classList.add('active');
+    });
+
+    tabLi.forEach(e => {        
+        e.firstChild.classList.add('active');
+    });
+
+
+    tabLiSecond.forEach(element => {
+        element.addEventListener('click', function(e) {
+            e.preventDefault();
+            let tabAttributeSecond = element.getAttribute('data-type'),
+                tabLiInnerSecond = element.parentNode.querySelectorAll('.tab-li-inner'),
+                tabBoxInnerSecond = element.parentNode.parentNode.parentNode.querySelectorAll('.tabs-box-medic-inner-second');
+            
+            //remove active class
+            tabBoxInnerSecond.forEach(item => {
+                item.classList.remove('active');
+            });
+            tabLiInnerSecond.forEach(el => {
+                el.classList.remove('active');
+            });
+            element.classList.add('active');
+    
+            //add active class
+            switch (tabAttributeSecond) {
+                case "medical":
+                    tabBoxInnerSecond.forEach(item => {
+                        if(item.classList.contains('language-medical')) {
+                            item.classList.add('active');
+                        }                    
+                    });
+                    break;
+                case "finance":
+                    tabBoxInnerSecond.forEach(item => {
+                        if(item.classList.contains('language-finance')) {
+                            item.classList.add('active');
+                        }                    
+                    });
+                  break;
+                case "legal":
+                tabBoxInnerSecond.forEach(item => {
+                    if(item.classList.contains('language-legal')) {
+                        item.classList.add('active');
+                    }                    
+                });
+                break;
+                default:              
+              }
+        });
+    });
+}
+
+//Forth tabs
+if(document.querySelectorAll('.tab-jsl').length !== 0) {
+    let tabLiForth = document.querySelectorAll('.tab-jsl');
+
+    tabLiForth.forEach(element => {
+        element.addEventListener('click', function(e) {
+            e.preventDefault();
+            let tabAttribute = element.getAttribute('data-type'),
+                tabLiInner = element.parentNode.querySelectorAll('.tab-jsl'),
+                tabBoxInner = element.parentNode.parentNode.parentNode.querySelectorAll('.python-inner');
+            
+
+            //remove active class
+            tabBoxInner.forEach(item => {
+                item.classList.remove('active');
+            });
+            tabLiInner.forEach(el => {
+                el.classList.remove('active');
+            });
+            element.classList.add('active');
+    
+            //add active class
+            switch (tabAttribute) {
+                case "spark-nlp-jsl":
+                    tabBoxInner.forEach(item => {
+                        if(item.classList.contains('python-johnsnowlabs')) {
+                            item.classList.add('active');
+                        }                    
+                    });
+                    break;
+                case "johnsnowlabs":
+                    tabBoxInner.forEach(item => {
+                        if(item.classList.contains('python-spark-nlp-jsl')) {
+                            item.classList.add('active');
+                        }                    
+                    });
+                  break;
+                default:              
+              }
+        });
+    });
+}
 
 </script>
 
@@ -773,6 +995,31 @@ hr.code-selector-underlie {
     });
   });
 })();
+
+$(document).ready(function () {
+
+  /* Versions Pagination*/
+  $('.pagination_big').owlCarousel({
+      margin:10,
+      nav:true,
+      dots:false,
+      responsive:{
+          0:{
+              items:3
+          },
+          400:{
+              items:4
+          },
+          500:{
+              items:6
+          },
+          1600:{
+              items:11
+          }
+      }
+  });
+});
+
 </script>
 </div><section class="page__comments d-print-none"></section></article><!-- start custom main bottom snippet -->
 
@@ -805,7 +1052,7 @@ jQuery(document).ready(function($) {
       if (jQuery(window).width() <= 1023)
       {
         jQuery('.page__sidebar').toggleClass('open'); 
-      jQuery('.demopage-sidemenu').toggleClass('open');
+      jQuery('.demomenu').toggleClass('open');
       }
   });
   jQuery('.toc--ellipsis a').click(function(e) {
@@ -819,7 +1066,7 @@ jQuery(document).ready(function($) {
 });
 
 /*TABS*/
-function openTabCall(cityName){
+/* function openTabCall(cityName){
   // Declare all variables
   var i, tabcontent, tablinks;
 
@@ -842,10 +1089,10 @@ function openTabCall(cityName){
 function openTab(evt, cityName) {
   openTabCall(cityName);
   evt.currentTarget.className += " active";
-}
+} */
 
 /*OPen by URL*/
-$(document).ready(function () {  
+jQuery(document).ready(function () {  
   const tabName = (window.location.hash || '').replace('#', '');
   const tab = document.getElementById(tabName || 'opensource');
   if (tab) {
@@ -853,20 +1100,69 @@ $(document).ready(function () {
   }
 });
 
-jQuery(document).ready(function(){
-	jQuery('.tab-item').click(function(event) {		
-		if (($(window).width() > 400) && ($(window).width() < 1199))
-	    {
-	    	jQuery('.tab-item').removeClass('open');
-	        jQuery(this).toggleClass('open');
-	    }
+//Accordion demos categories
+if(document.querySelector(".acc-top")) {
+  let acc = document.getElementsByClassName("acc-top"),
+    isResizeble = false;
+
+  if(!isResizeble && document.querySelector(".acc-top")) {
+      let accBody = document.querySelector('.acc-body li.active');
+      accBody.parentElement.style.maxHeight = accBody.parentElement.scrollHeight + 20 + "px";
+      accBody.parentElement.classList.add('open');
+      accBody.parentElement.previousElementSibling.classList.add('active');
+      isResizeble = true;
+  }
+
+for (let i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+      panel.classList.remove('open');
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + 20 + "px";
+      panel.classList.add('open');
+    }
   });
-  
+}
+}
 
-});
+
+//Show more in demos description
+if(document.querySelector('.tab-description')) {
+  let tabDescription = document.querySelectorAll('.tab-description');
+
+  tabDescription.forEach(element => {
+    let tabDescriptionInner = element.querySelector('.tab-description-inner');
+    if(element.offsetHeight < tabDescriptionInner.offsetHeight) {
+      element.classList.add('big-descr');
+    }
+  });
+
+  let showMore = document.querySelectorAll('.show_more');
+
+  showMore.forEach(element => {
+    element.addEventListener("click", function(e) {
+      e.preventDefault();
+      this.parentElement.parentElement.classList.remove('big-descr');
+      this.parentElement.parentElement.classList.add('big-descr-close');
+    });
+  });
+}
 
 
- 
+//disable Colab link
+if(document.querySelector('.btn.disable')) {
+  let btnDisable = document.querySelectorAll('.btn.disable');
+
+  btnDisable.forEach(element => {
+    element.addEventListener("click", function(e) {
+      e.preventDefault();
+    });
+  });
+}
+
 
 </script></div></div>
     </div><script>(function() {
@@ -1065,8 +1361,10 @@ jQuery(document).ready(function(){
   window.Lazyload.js(SOURCES.jquery, function() {
     function toc(options) {
       var $root = this, $window = $(window), $scrollTarget, $scroller, $tocUl = $('<ul class="toc toc--ellipsis"></ul>'), $tocLi, $headings, $activeLast, $activeCur,
-        selectors = 'h1,h2,h3', container = 'body', scrollTarget = window, scroller = 'html, body', disabled = false,
+        selectors = 'h1,h2,h3',  container = 'body', scrollTarget = window, scroller = 'html, body', disabled = false,
         headingsPos, scrolling = false, hasRendered = false, hasInit = false;
+
+        
 
       function setOptions(options) {
         var _options = options || {};
@@ -1108,7 +1406,8 @@ jQuery(document).ready(function(){
           $root.append($tocUl);
           $headings.each(function() {
             var $this = $(this);
-            $tocUl.append($('<li></li>').addClass('toc-' + $this.prop('tagName').toLowerCase())
+            $tocUl.append($('<li></li>').addClass('toc-' + $this.prop('tagName')
+              .toLowerCase() + ' ' + $this.prop('className'))
               .append($('<a></a>').text($this.text()).attr('href', '#' + $this.prop('id'))));
           });
           $tocLi = $tocUl.children('li');
@@ -1170,30 +1469,6 @@ jQuery(document).ready(function(){
 /*(function () {
 
 })();*/
-</script><script>
-  window.Lazyload.js(['https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js', 'https://cdn.bootcss.com/Chart.js/2.7.2/Chart.bundle.min.js'], function() {
-    var $canvas = null, $this = null, _ctx = null, _text = '';
-    $('.language-chart').each(function(){
-      $this = $(this);
-      $canvas = $('<canvas></canvas>');
-      _text = $this.text();
-      $this.text('').append($canvas);
-      _ctx = $canvas.get(0).getContext('2d');
-      (_ctx && _text) && (new Chart(_ctx, JSON.parse(_text)) && $this.attr('data-processed', true));
-    });
-  });
-</script><script type="text/x-mathjax-config">
-	var _config = { tex2jax: {
-		inlineMath: [['$','$'], ['\\(','\\)']]
-	}};_config.TeX = { equationNumbers: { autoNumber: "all" } };MathJax.Hub.Config(_config);
-</script>
-<script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML" async></script><script>
-  window.Lazyload.js('https://cdn.bootcss.com/mermaid/8.0.0-rc.8/mermaid.min.js', function() {
-    mermaid.initialize({
-      startOnLoad: true
-    });
-    mermaid.init(undefined, '.language-mermaid');
-  });
 </script>
     </div>
     <script>(function () {

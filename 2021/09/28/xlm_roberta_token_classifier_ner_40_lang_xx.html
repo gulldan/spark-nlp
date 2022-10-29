@@ -9,7 +9,9 @@
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-59JLR64');</script>
-<!-- End Google Tag Manager --><title>XLM-RoBERTa Token Classification Base - NER XTREME (xlm_roberta_token_classifier_ner_40_lang)- Spark NLP Model</title><meta name="description" content="DescriptionXLM-R + NERThis model is a fine-tuned  XLM-Roberta-base over the 40 languages proposed in XTREME from Wikiann.The covered labels are:LOCORGPEROPre...">
+<!-- End Google Tag Manager --><title>XLM-RoBERTa NER (Base, 40 languages)</title><meta property="og:title" content=""/>
+
+<meta name="description" content="DescriptionXLM-R + NERThis model is a fine-tuned  XLM-Roberta-base over the 40 languages proposed in XTREME from Wikiann.The covered labels are:LOCORGPEROPredicted EntitiesLOC, ORG, PER, OLive DemoOpen in ColabDownloadHow to use         PythonScalaNLU  document_assembler = DocumentAssembler() \.setInputCol('text') \...">
 <link rel="canonical" href="/2021/09/28/xlm_roberta_token_classifier_ner_40_lang_xx.html"><link rel="alternate" type="application/rss+xml" title="Spark NLP" href="/feed.xml"><!-- start favicons snippet, use https://realfavicongenerator.net/ -->
 <!---->
 <!-- <link rel="apple-touch-icon" sizes="180x180" href="/fav.ico"> -->
@@ -411,7 +413,8 @@
               <span class="edit-on-github-label">Edit on GitHub</span>
             </a>
         </div><ul class="right-col menu"><li><i class="far fa-user"></i> <span>John Snow Labs</span></li><li><i class="far fa-calendar-alt"></i> <span>Sep 28, 2021</span>
-            </li></ul></div><meta itemprop="author" content=""/><meta itemprop="datePublished" content="2021-09-28T00:00:00+00:00"></div><header class="main-docs"><h1>XLM-RoBERTa Token Classification Base - NER XTREME (xlm_roberta_token_classifier_ner_40_lang)</h1></header></div><meta itemprop="headline" content="XLM-RoBERTa Token Classification Base - NER XTREME (xlm_roberta_token_classifier_ner_40_lang)"><div class="article__info tags_box clearfix"><ul class="left-col menu"><li>xlm_roberta</li><li>multilingual</li><li>xtreme</li><li>ner</li><li>token_classification</li><li>xx</li><li>open_source</li></ul></div><meta itemprop="author" content=""/><meta itemprop="datePublished" content="2021-09-28T00:00:00+00:00">
+            </li></ul></div><meta itemprop="author" content=""/><meta itemprop="datePublished" content="2021-09-28T00:00:00+00:00"></div><header class="main-docs have_subtitle">
+          <h1>XLM-RoBERTa NER (Base, 40 languages)</h1><div class="top-subtitle mont"></div></header></div><meta itemprop="headline" content="XLM-RoBERTa NER (Base, 40 languages)"><div class="article__info tags_box clearfix"><ul class="left-col menu"><li>xlm_roberta</li><li>multilingual</li><li>xtreme</li><li>ner</li><li>token_classification</li><li>xx</li><li>open_source</li></ul></div><meta itemprop="author" content=""/><meta itemprop="datePublished" content="2021-09-28T00:00:00+00:00">
     <meta itemprop="keywords" content="xlm_roberta,multilingual,xtreme,ner,token_classification,xx,open_source"><div class="js-article-content"><div class="model-wrap"><div class="layout--article"><!-- start custom article top snippet -->
 
 <!-- end custom article top snippet --><div class="article__content" itemprop="articleBody"><h2 id="description">Description</h2>
@@ -440,56 +443,56 @@ O
 
 <div class="tabs-box">
   <div class="top_tab_li">   
-    <button class="tab-li code-selector-active python-button">Python</button><button class="tab-li code-selector-un-active scala-button">Scala</button><button class="tab-li code-selector-un-active nlu-button">NLU</button>
+    <p><button data-type="python" class="tab-li code-selector-active python-button">Python</button><button data-type="scala" class="tab-li code-selector-un-active scala-button">Scala</button><button data-type="nlu" class="tab-li code-selector-un-active nlu-button">NLU</button></p>
 </div>
   <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">document_assembler</span> <span class="o">=</span> <span class="n">DocumentAssembler</span><span class="p">()</span> \
-    <span class="p">.</span><span class="n">setInputCol</span><span class="p">(</span><span class="s">'text'</span><span class="p">)</span> \
-    <span class="p">.</span><span class="n">setOutputCol</span><span class="p">(</span><span class="s">'document'</span><span class="p">)</span>
+<span class="p">.</span><span class="n">setInputCol</span><span class="p">(</span><span class="s">'text'</span><span class="p">)</span> \
+<span class="p">.</span><span class="n">setOutputCol</span><span class="p">(</span><span class="s">'document'</span><span class="p">)</span>
 
 <span class="n">tokenizer</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">()</span> \
-    <span class="p">.</span><span class="n">setInputCols</span><span class="p">([</span><span class="s">'document'</span><span class="p">])</span> \
-    <span class="p">.</span><span class="n">setOutputCol</span><span class="p">(</span><span class="s">'token'</span><span class="p">)</span>
+<span class="p">.</span><span class="n">setInputCols</span><span class="p">([</span><span class="s">'document'</span><span class="p">])</span> \
+<span class="p">.</span><span class="n">setOutputCol</span><span class="p">(</span><span class="s">'token'</span><span class="p">)</span>
 
 <span class="n">tokenClassifier</span> <span class="o">=</span> <span class="n">XlmRoBertaForTokenClassification</span> \
-      <span class="p">.</span><span class="n">pretrained</span><span class="p">(</span><span class="s">'xlm_roberta_token_classifier_ner_40_lang'</span><span class="p">,</span> <span class="s">'xx'</span><span class="p">)</span> \
-      <span class="p">.</span><span class="n">setInputCols</span><span class="p">([</span><span class="s">'token'</span><span class="p">,</span> <span class="s">'document'</span><span class="p">])</span> \
-      <span class="p">.</span><span class="n">setOutputCol</span><span class="p">(</span><span class="s">'ner'</span><span class="p">)</span> \
-      <span class="p">.</span><span class="n">setCaseSensitive</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span> \
-      <span class="p">.</span><span class="n">setMaxSentenceLength</span><span class="p">(</span><span class="mi">512</span><span class="p">)</span>
+<span class="p">.</span><span class="n">pretrained</span><span class="p">(</span><span class="s">'xlm_roberta_token_classifier_ner_40_lang'</span><span class="p">,</span> <span class="s">'xx'</span><span class="p">)</span> \
+<span class="p">.</span><span class="n">setInputCols</span><span class="p">([</span><span class="s">'token'</span><span class="p">,</span> <span class="s">'document'</span><span class="p">])</span> \
+<span class="p">.</span><span class="n">setOutputCol</span><span class="p">(</span><span class="s">'ner'</span><span class="p">)</span> \
+<span class="p">.</span><span class="n">setCaseSensitive</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span> \
+<span class="p">.</span><span class="n">setMaxSentenceLength</span><span class="p">(</span><span class="mi">512</span><span class="p">)</span>
 
 <span class="c1"># since output column is IOB/IOB2 style, NerConverter can extract entities
 </span><span class="n">ner_converter</span> <span class="o">=</span> <span class="n">NerConverter</span><span class="p">()</span> \
-    <span class="p">.</span><span class="n">setInputCols</span><span class="p">([</span><span class="s">'document'</span><span class="p">,</span> <span class="s">'token'</span><span class="p">,</span> <span class="s">'ner'</span><span class="p">])</span> \
-    <span class="p">.</span><span class="n">setOutputCol</span><span class="p">(</span><span class="s">'entities'</span><span class="p">)</span>
+<span class="p">.</span><span class="n">setInputCols</span><span class="p">([</span><span class="s">'document'</span><span class="p">,</span> <span class="s">'token'</span><span class="p">,</span> <span class="s">'ner'</span><span class="p">])</span> \
+<span class="p">.</span><span class="n">setOutputCol</span><span class="p">(</span><span class="s">'entities'</span><span class="p">)</span>
 
 <span class="n">pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">stages</span><span class="o">=</span><span class="p">[</span>
-    <span class="n">document_assembler</span><span class="p">,</span> 
-    <span class="n">tokenizer</span><span class="p">,</span>
-    <span class="n">tokenClassifier</span><span class="p">,</span>
-    <span class="n">ner_converter</span>
+<span class="n">document_assembler</span><span class="p">,</span> 
+<span class="n">tokenizer</span><span class="p">,</span>
+<span class="n">tokenClassifier</span><span class="p">,</span>
+<span class="n">ner_converter</span>
 <span class="p">])</span>
 
 <span class="n">example</span> <span class="o">=</span> <span class="n">spark</span><span class="p">.</span><span class="n">createDataFrame</span><span class="p">([[</span><span class="s">'My name is John!'</span><span class="p">]]).</span><span class="n">toDF</span><span class="p">(</span><span class="s">"text"</span><span class="p">)</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">example</span><span class="p">).</span><span class="n">transform</span><span class="p">(</span><span class="n">example</span><span class="p">)</span>
 </code></pre></div>  </div>
   <div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">val</span> <span class="nv">document_assembler</span> <span class="k">=</span> <span class="nc">DocumentAssembler</span><span class="o">()</span> 
-    <span class="o">.</span><span class="py">setInputCol</span><span class="o">(</span><span class="s">"text"</span><span class="o">)</span> 
-    <span class="o">.</span><span class="py">setOutputCol</span><span class="o">(</span><span class="s">"document"</span><span class="o">)</span>
+<span class="o">.</span><span class="py">setInputCol</span><span class="o">(</span><span class="s">"text"</span><span class="o">)</span> 
+<span class="o">.</span><span class="py">setOutputCol</span><span class="o">(</span><span class="s">"document"</span><span class="o">)</span>
 
 <span class="k">val</span> <span class="nv">tokenizer</span> <span class="k">=</span> <span class="nc">Tokenizer</span><span class="o">()</span> 
-    <span class="o">.</span><span class="py">setInputCols</span><span class="o">(</span><span class="s">"document"</span><span class="o">)</span> 
-    <span class="o">.</span><span class="py">setOutputCol</span><span class="o">(</span><span class="s">"token"</span><span class="o">)</span>
+<span class="o">.</span><span class="py">setInputCols</span><span class="o">(</span><span class="s">"document"</span><span class="o">)</span> 
+<span class="o">.</span><span class="py">setOutputCol</span><span class="o">(</span><span class="s">"token"</span><span class="o">)</span>
 
 <span class="k">val</span> <span class="nv">tokenClassifier</span> <span class="k">=</span> <span class="nv">XlmRoBertaForTokenClassification</span><span class="o">.</span><span class="py">pretrained</span><span class="o">(</span><span class="s">"xlm_roberta_token_classifier_ner_40_lang"</span><span class="o">,</span> <span class="s">"xx"</span><span class="o">)</span>
-      <span class="o">.</span><span class="py">setInputCols</span><span class="o">(</span><span class="s">"document"</span><span class="o">,</span> <span class="s">"token"</span><span class="o">)</span>
-      <span class="o">.</span><span class="py">setOutputCol</span><span class="o">(</span><span class="s">"ner"</span><span class="o">)</span>
-      <span class="o">.</span><span class="py">setCaseSensitive</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span>
-      <span class="o">.</span><span class="py">setMaxSentenceLength</span><span class="o">(</span><span class="mi">512</span><span class="o">)</span>
+<span class="o">.</span><span class="py">setInputCols</span><span class="o">(</span><span class="s">"document"</span><span class="o">,</span> <span class="s">"token"</span><span class="o">)</span>
+<span class="o">.</span><span class="py">setOutputCol</span><span class="o">(</span><span class="s">"ner"</span><span class="o">)</span>
+<span class="o">.</span><span class="py">setCaseSensitive</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span>
+<span class="o">.</span><span class="py">setMaxSentenceLength</span><span class="o">(</span><span class="mi">512</span><span class="o">)</span>
 
 <span class="c1">// since output column is IOB/IOB2 style, NerConverter can extract entities</span>
 <span class="k">val</span> <span class="nv">ner_converter</span> <span class="k">=</span> <span class="nc">NerConverter</span><span class="o">()</span> 
-    <span class="o">.</span><span class="py">setInputCols</span><span class="o">(</span><span class="s">"document"</span><span class="o">,</span> <span class="s">"token"</span><span class="o">,</span> <span class="s">"ner"</span><span class="o">)</span> 
-    <span class="o">.</span><span class="py">setOutputCol</span><span class="o">(</span><span class="s">"entities"</span><span class="o">)</span>
+<span class="o">.</span><span class="py">setInputCols</span><span class="o">(</span><span class="s">"document"</span><span class="o">,</span> <span class="s">"token"</span><span class="o">,</span> <span class="s">"ner"</span><span class="o">)</span> 
+<span class="o">.</span><span class="py">setOutputCol</span><span class="o">(</span><span class="s">"entities"</span><span class="o">)</span>
 
 <span class="k">val</span> <span class="nv">pipeline</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">Pipeline</span><span class="o">().</span><span class="py">setStages</span><span class="o">(</span><span class="nc">Array</span><span class="o">(</span><span class="n">document_assembler</span><span class="o">,</span> <span class="n">tokenizer</span><span class="o">,</span> <span class="n">tokenClassifier</span><span class="o">,</span> <span class="n">ner_converter</span><span class="o">))</span>
 
@@ -497,6 +500,11 @@ O
 
 <span class="k">val</span> <span class="nv">result</span> <span class="k">=</span> <span class="nv">pipeline</span><span class="o">.</span><span class="py">fit</span><span class="o">(</span><span class="n">example</span><span class="o">).</span><span class="py">transform</span><span class="o">(</span><span class="n">example</span><span class="o">)</span>
 </code></pre></div>  </div>
+
+  <div class="language-python nlu-block highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">nlu</span>
+<span class="n">nlu</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s">"xx.classify.token_xlm_roberta.token_classifier_ner_40_lang"</span><span class="p">).</span><span class="n">predict</span><span class="p">(</span><span class="s">"""My name is John!"""</span><span class="p">)</span>
+</code></pre></div>  </div>
+
 </div>
 
 <h2 class="model-param" id="model-information">Model Information</h2>
@@ -553,12 +561,11 @@ O
 Number of documents: 262300
 
 </code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>       precision    recall  f1-score   support
+<p>precision    recall  f1-score   support</p>
 
-  ORG       0.81      0.81      0.81    102452
-  PER       0.90      0.91      0.91    108978
-  LOC       0.86      0.89      0.87    121868
-</code></pre></div></div>
+<p>ORG       0.81      0.81      0.81    102452
+PER       0.90      0.91      0.91    108978
+LOC       0.86      0.89      0.87    121868</p>
 
 <p>micro avg       0.86      0.87      0.87    333298
 macro avg       0.86      0.87      0.87    333298</p>
@@ -566,12 +573,11 @@ macro avg       0.86      0.87      0.87    333298</p>
 ### Afrikaans
 Number of documents: 1000
 </code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>       precision    recall  f1-score   support
+<p>precision    recall  f1-score   support</p>
 
-  ORG       0.89      0.88      0.88       582
-  PER       0.89      0.97      0.93       369
-  LOC       0.84      0.90      0.86       518
-</code></pre></div></div>
+<p>ORG       0.89      0.88      0.88       582
+PER       0.89      0.97      0.93       369
+LOC       0.84      0.90      0.86       518</p>
 
 <p>micro avg       0.87      0.91      0.89      1469
 macro avg       0.87      0.91      0.89      1469</p>
@@ -579,12 +585,11 @@ macro avg       0.87      0.91      0.89      1469</p>
 ### Arabic
 Number of documents: 10000
 </code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>       precision    recall  f1-score   support
+<p>precision    recall  f1-score   support</p>
 
-  ORG       0.83      0.84      0.84      3507
-  PER       0.90      0.91      0.91      3643
-  LOC       0.88      0.89      0.88      3604
-</code></pre></div></div>
+<p>ORG       0.83      0.84      0.84      3507
+PER       0.90      0.91      0.91      3643
+LOC       0.88      0.89      0.88      3604</p>
 
 <p>micro avg       0.87      0.88      0.88     10754
 macro avg       0.87      0.88      0.88     10754</p>
@@ -592,12 +597,11 @@ macro avg       0.87      0.88      0.88     10754</p>
 ### Basque
 Number of documents: 10000
 </code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>       precision    recall  f1-score   support
+<p>precision    recall  f1-score   support</p>
 
-  LOC       0.88      0.93      0.91      5228
-  ORG       0.86      0.81      0.83      3654
-  PER       0.91      0.91      0.91      4072
-</code></pre></div></div>
+<p>LOC       0.88      0.93      0.91      5228
+ORG       0.86      0.81      0.83      3654
+PER       0.91      0.91      0.91      4072</p>
 
 <p>micro avg       0.89      0.89      0.89     12954
 macro avg       0.89      0.89      0.89     12954</p>
@@ -605,12 +609,11 @@ macro avg       0.89      0.89      0.89     12954</p>
 ### Bengali
 Number of documents: 1000
 </code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>       precision    recall  f1-score   support
+<p>precision    recall  f1-score   support</p>
 
-  ORG       0.86      0.89      0.87       325
-  LOC       0.91      0.91      0.91       406
-  PER       0.96      0.95      0.95       364
-</code></pre></div></div>
+<p>ORG       0.86      0.89      0.87       325
+LOC       0.91      0.91      0.91       406
+PER       0.96      0.95      0.95       364</p>
 
 <p>micro avg       0.91      0.92      0.91      1095
 macro avg       0.91      0.92      0.91      1095</p>
@@ -618,12 +621,11 @@ macro avg       0.91      0.92      0.91      1095</p>
 ### Bulgarian
 Number of documents: 1000
 </code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>       precision    recall  f1-score   support
+<p>precision    recall  f1-score   support</p>
 
-  ORG       0.86      0.83      0.84      3661
-  PER       0.92      0.95      0.94      4006
-  LOC       0.92      0.95      0.94      6449
-</code></pre></div></div>
+<p>ORG       0.86      0.83      0.84      3661
+PER       0.92      0.95      0.94      4006
+LOC       0.92      0.95      0.94      6449</p>
 
 <p>micro avg       0.91      0.92      0.91     14116
 macro avg       0.91      0.92      0.91     14116</p>
@@ -631,12 +633,11 @@ macro avg       0.91      0.92      0.91     14116</p>
 ### Burmese
 Number of documents: 100
 </code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>       precision    recall  f1-score   support
+<p>precision    recall  f1-score   support</p>
 
-  LOC       0.60      0.86      0.71        37
-  ORG       0.68      0.63      0.66        30
-  PER       0.44      0.44      0.44        36
-</code></pre></div></div>
+<p>LOC       0.60      0.86      0.71        37
+ORG       0.68      0.63      0.66        30
+PER       0.44      0.44      0.44        36</p>
 
 <p>micro avg       0.57      0.65      0.61       103
 macro avg       0.57      0.65      0.60       103</p>
@@ -644,12 +645,11 @@ macro avg       0.57      0.65      0.60       103</p>
 ### Chinese
 Number of documents: 10000
 </code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>       precision    recall  f1-score   support
+<p>precision    recall  f1-score   support</p>
 
-  ORG       0.70      0.69      0.70      4022
-  LOC       0.76      0.81      0.78      3830
-  PER       0.84      0.84      0.84      3706
-</code></pre></div></div>
+<p>ORG       0.70      0.69      0.70      4022
+LOC       0.76      0.81      0.78      3830
+PER       0.84      0.84      0.84      3706</p>
 
 <p>micro avg       0.76      0.78      0.77     11558
 macro avg       0.76      0.78      0.77     11558</p>
@@ -657,12 +657,11 @@ macro avg       0.76      0.78      0.77     11558</p>
 ### Dutch
 Number of documents: 10000
 </code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>       precision    recall  f1-score   support
+<p>precision    recall  f1-score   support</p>
 
-  ORG       0.87      0.87      0.87      3930
-  PER       0.95      0.95      0.95      4377
-  LOC       0.91      0.92      0.91      4813
-</code></pre></div></div>
+<p>ORG       0.87      0.87      0.87      3930
+PER       0.95      0.95      0.95      4377
+LOC       0.91      0.92      0.91      4813</p>
 
 <p>micro avg       0.91      0.92      0.91     13120
 macro avg       0.91      0.92      0.91     13120</p>
@@ -670,12 +669,11 @@ macro avg       0.91      0.92      0.91     13120</p>
 ### English
 Number of documents: 10000
 </code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>       precision    recall  f1-score   support
+<p>precision    recall  f1-score   support</p>
 
-  LOC       0.83      0.84      0.84      4781
-  PER       0.89      0.90      0.89      4559
-  ORG       0.75      0.75      0.75      4633
-</code></pre></div></div>
+<p>LOC       0.83      0.84      0.84      4781
+PER       0.89      0.90      0.89      4559
+ORG       0.75      0.75      0.75      4633</p>
 
 <p>micro avg       0.82      0.83      0.83     13973
 macro avg       0.82      0.83      0.83     13973</p>
@@ -683,12 +681,11 @@ macro avg       0.82      0.83      0.83     13973</p>
 ### Estonian
 Number of documents: 10000
 </code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>       precision    recall  f1-score   support
+<p>precision    recall  f1-score   support</p>
 
-  LOC       0.89      0.92      0.91      5654
-  ORG       0.85      0.85      0.85      3878
-  PER       0.94      0.94      0.94      4026
-</code></pre></div></div>
+<p>LOC       0.89      0.92      0.91      5654
+ORG       0.85      0.85      0.85      3878
+PER       0.94      0.94      0.94      4026</p>
 
 <p>micro avg       0.90      0.91      0.90     13558
 macro avg       0.90      0.91      0.90     13558</p>
@@ -696,12 +693,11 @@ macro avg       0.90      0.91      0.90     13558</p>
 ### Finnish
 Number of documents: 10000
 </code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>       precision    recall  f1-score   support
+<p>precision    recall  f1-score   support</p>
 
-  ORG       0.84      0.83      0.84      4104
-  LOC       0.88      0.90      0.89      5307
-  PER       0.95      0.94      0.94      4519
-</code></pre></div></div>
+<p>ORG       0.84      0.83      0.84      4104
+LOC       0.88      0.90      0.89      5307
+PER       0.95      0.94      0.94      4519</p>
 
 <p>micro avg       0.89      0.89      0.89     13930
 macro avg       0.89      0.89      0.89     13930</p>
@@ -709,12 +705,11 @@ macro avg       0.89      0.89      0.89     13930</p>
 ### French
 Number of documents: 10000
 </code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>       precision    recall  f1-score   support
+<p>precision    recall  f1-score   support</p>
 
-  LOC       0.90      0.89      0.89      4808
-  ORG       0.84      0.87      0.85      3876
-  PER       0.94      0.93      0.94      4249
-</code></pre></div></div>
+<p>LOC       0.90      0.89      0.89      4808
+ORG       0.84      0.87      0.85      3876
+PER       0.94      0.93      0.94      4249</p>
 
 <p>micro avg       0.89      0.90      0.90     12933
 macro avg       0.89      0.90      0.90     12933</p>
@@ -722,12 +717,11 @@ macro avg       0.89      0.90      0.90     12933</p>
 ### Georgian
 Number of documents: 10000
 </code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>       precision    recall  f1-score   support
+<p>precision    recall  f1-score   support</p>
 
-  PER       0.90      0.91      0.90      3964
-  ORG       0.83      0.77      0.80      3757
-  LOC       0.82      0.88      0.85      4894
-</code></pre></div></div>
+<p>PER       0.90      0.91      0.90      3964
+ORG       0.83      0.77      0.80      3757
+LOC       0.82      0.88      0.85      4894</p>
 
 <p>micro avg       0.84      0.86      0.85     12615
 macro avg       0.84      0.86      0.85     12615</p>
@@ -735,12 +729,11 @@ macro avg       0.84      0.86      0.85     12615</p>
 ### German
 Number of documents: 10000
 </code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>       precision    recall  f1-score   support
+<p>precision    recall  f1-score   support</p>
 
-  LOC       0.85      0.90      0.87      4939
-  PER       0.94      0.91      0.92      4452
-  ORG       0.79      0.78      0.79      4247
-</code></pre></div></div>
+<p>LOC       0.85      0.90      0.87      4939
+PER       0.94      0.91      0.92      4452
+ORG       0.79      0.78      0.79      4247</p>
 
 <p>micro avg       0.86      0.86      0.86     13638
 macro avg       0.86      0.86      0.86     13638</p>
@@ -748,12 +741,11 @@ macro avg       0.86      0.86      0.86     13638</p>
 ### Greek
 Number of documents: 10000
 </code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>       precision    recall  f1-score   support
+<p>precision    recall  f1-score   support</p>
 
-  ORG       0.86      0.85      0.85      3771
-  LOC       0.88      0.91      0.90      4436
-  PER       0.91      0.93      0.92      3894
-</code></pre></div></div>
+<p>ORG       0.86      0.85      0.85      3771
+LOC       0.88      0.91      0.90      4436
+PER       0.91      0.93      0.92      3894</p>
 
 <p>micro avg       0.88      0.90      0.89     12101
 macro avg       0.88      0.90      0.89     12101</p>
@@ -761,12 +753,11 @@ macro avg       0.88      0.90      0.89     12101</p>
 ### Hebrew
 Number of documents: 10000
 </code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>       precision    recall  f1-score   support
+<p>precision    recall  f1-score   support</p>
 
-  PER       0.87      0.88      0.87      4206
-  ORG       0.76      0.75      0.76      4190
-  LOC       0.85      0.85      0.85      4538
-</code></pre></div></div>
+<p>PER       0.87      0.88      0.87      4206
+ORG       0.76      0.75      0.76      4190
+LOC       0.85      0.85      0.85      4538</p>
 
 <p>micro avg       0.83      0.83      0.83     12934
 macro avg       0.82      0.83      0.83     12934</p>
@@ -774,12 +765,11 @@ macro avg       0.82      0.83      0.83     12934</p>
 ### Hindi
 Number of documents: 1000
 </code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>       precision    recall  f1-score   support
+<p>precision    recall  f1-score   support</p>
 
-  ORG       0.78      0.81      0.79       362
-  LOC       0.83      0.85      0.84       422
-  PER       0.90      0.95      0.92       427
-</code></pre></div></div>
+<p>ORG       0.78      0.81      0.79       362
+LOC       0.83      0.85      0.84       422
+PER       0.90      0.95      0.92       427</p>
 
 <p>micro avg       0.84      0.87      0.85      1211
 macro avg       0.84      0.87      0.85      1211</p>
@@ -787,12 +777,11 @@ macro avg       0.84      0.87      0.85      1211</p>
 ### Hungarian
 Number of documents: 10000
 </code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>       precision    recall  f1-score   support
+<p>precision    recall  f1-score   support</p>
 
-  PER       0.95      0.95      0.95      4347
-  ORG       0.87      0.88      0.87      3988
-  LOC       0.90      0.92      0.91      5544
-</code></pre></div></div>
+<p>PER       0.95      0.95      0.95      4347
+ORG       0.87      0.88      0.87      3988
+LOC       0.90      0.92      0.91      5544</p>
 
 <p>micro avg       0.91      0.92      0.91     13879
 macro avg       0.91      0.92      0.91     13879</p>
@@ -800,12 +789,11 @@ macro avg       0.91      0.92      0.91     13879</p>
 ### Indonesian
 Number of documents: 10000
 </code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>       precision    recall  f1-score   support
+<p>precision    recall  f1-score   support</p>
 
-  ORG       0.88      0.89      0.88      3735
-  LOC       0.93      0.95      0.94      3694
-  PER       0.93      0.93      0.93      3947
-</code></pre></div></div>
+<p>ORG       0.88      0.89      0.88      3735
+LOC       0.93      0.95      0.94      3694
+PER       0.93      0.93      0.93      3947</p>
 
 <p>micro avg       0.91      0.92      0.92     11376
 macro avg       0.91      0.92      0.92     11376</p>
@@ -813,12 +801,11 @@ macro avg       0.91      0.92      0.92     11376</p>
 ### Italian
 Number of documents: 10000
 </code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>       precision    recall  f1-score   support
+<p>precision    recall  f1-score   support</p>
 
-  LOC       0.88      0.88      0.88      4592
-  ORG       0.86      0.86      0.86      4088
-  PER       0.96      0.96      0.96      4732
-</code></pre></div></div>
+<p>LOC       0.88      0.88      0.88      4592
+ORG       0.86      0.86      0.86      4088
+PER       0.96      0.96      0.96      4732</p>
 
 <p>micro avg       0.90      0.90      0.90     13412
 macro avg       0.90      0.90      0.90     13412</p>
@@ -826,12 +813,11 @@ macro avg       0.90      0.90      0.90     13412</p>
 ### Japanese
 Number of documents: 10000
 </code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>       precision    recall  f1-score   support
+<p>precision    recall  f1-score   support</p>
 
-  ORG       0.62      0.61      0.62      4184
-  PER       0.76      0.81      0.78      3812
-  LOC       0.68      0.74      0.71      4281
-</code></pre></div></div>
+<p>ORG       0.62      0.61      0.62      4184
+PER       0.76      0.81      0.78      3812
+LOC       0.68      0.74      0.71      4281</p>
 
 <p>micro avg       0.69      0.72      0.70     12277
 macro avg       0.69      0.72      0.70     12277</p>
@@ -839,12 +825,11 @@ macro avg       0.69      0.72      0.70     12277</p>
 ### Javanese
 Number of documents: 100
 </code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>       precision    recall  f1-score   support
+<p>precision    recall  f1-score   support</p>
 
-  ORG       0.79      0.80      0.80        46
-  PER       0.81      0.96      0.88        26
-  LOC       0.75      0.75      0.75        40
-</code></pre></div></div>
+<p>ORG       0.79      0.80      0.80        46
+PER       0.81      0.96      0.88        26
+LOC       0.75      0.75      0.75        40</p>
 
 <p>micro avg       0.78      0.82      0.80       112
 macro avg       0.78      0.82      0.80       112</p>
@@ -852,12 +837,11 @@ macro avg       0.78      0.82      0.80       112</p>
 ### Kazakh
 Number of documents: 1000
 </code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>       precision    recall  f1-score   support
+<p>precision    recall  f1-score   support</p>
 
-  ORG       0.76      0.61      0.68       307
-  LOC       0.78      0.90      0.84       461
-  PER       0.87      0.91      0.89       367
-</code></pre></div></div>
+<p>ORG       0.76      0.61      0.68       307
+LOC       0.78      0.90      0.84       461
+PER       0.87      0.91      0.89       367</p>
 
 <p>micro avg       0.81      0.83      0.82      1135
 macro avg       0.81      0.83      0.81      1135</p>
@@ -865,12 +849,11 @@ macro avg       0.81      0.83      0.81      1135</p>
 ### Korean
 Number of documents: 10000
 </code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>       precision    recall  f1-score   support
+<p>precision    recall  f1-score   support</p>
 
-  LOC       0.86      0.89      0.88      5097
-  ORG       0.79      0.74      0.77      4218
-  PER       0.83      0.86      0.84      4014
-</code></pre></div></div>
+<p>LOC       0.86      0.89      0.88      5097
+ORG       0.79      0.74      0.77      4218
+PER       0.83      0.86      0.84      4014</p>
 
 <p>micro avg       0.83      0.83      0.83     13329
 macro avg       0.83      0.83      0.83     13329</p>
@@ -878,12 +861,11 @@ macro avg       0.83      0.83      0.83     13329</p>
 ### Malay
 Number of documents: 1000
 </code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>       precision    recall  f1-score   support
+<p>precision    recall  f1-score   support</p>
 
-  ORG       0.87      0.89      0.88       368
-  PER       0.92      0.91      0.91       366
-  LOC       0.94      0.95      0.95       354
-</code></pre></div></div>
+<p>ORG       0.87      0.89      0.88       368
+PER       0.92      0.91      0.91       366
+LOC       0.94      0.95      0.95       354</p>
 
 <p>micro avg       0.91      0.92      0.91      1088
 macro avg       0.91      0.92      0.91      1088</p>
@@ -891,12 +873,11 @@ macro avg       0.91      0.92      0.91      1088</p>
 ### Malayalam
 Number of documents: 1000
 </code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>       precision    recall  f1-score   support
+<p>precision    recall  f1-score   support</p>
 
-  ORG       0.75      0.74      0.75       347
-  PER       0.84      0.89      0.86       417
-  LOC       0.74      0.75      0.75       391
-</code></pre></div></div>
+<p>ORG       0.75      0.74      0.75       347
+PER       0.84      0.89      0.86       417
+LOC       0.74      0.75      0.75       391</p>
 
 <p>micro avg       0.78      0.80      0.79      1155
 macro avg       0.78      0.80      0.79      1155</p>
@@ -904,12 +885,11 @@ macro avg       0.78      0.80      0.79      1155</p>
 ### Marathi
 Number of documents: 1000
 </code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>       precision    recall  f1-score   support
+<p>precision    recall  f1-score   support</p>
 
-  PER       0.89      0.94      0.92       394
-  LOC       0.82      0.84      0.83       457
-  ORG       0.84      0.78      0.81       339
-</code></pre></div></div>
+<p>PER       0.89      0.94      0.92       394
+LOC       0.82      0.84      0.83       457
+ORG       0.84      0.78      0.81       339</p>
 
 <p>micro avg       0.85      0.86      0.85      1190
 macro avg       0.85      0.86      0.85      1190</p>
@@ -917,12 +897,11 @@ macro avg       0.85      0.86      0.85      1190</p>
 ### Persian
 Number of documents: 10000
 </code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>       precision    recall  f1-score   support
+<p>precision    recall  f1-score   support</p>
 
-  PER       0.93      0.92      0.93      3540
-  LOC       0.93      0.93      0.93      3584
-  ORG       0.89      0.92      0.90      3370
-</code></pre></div></div>
+<p>PER       0.93      0.92      0.93      3540
+LOC       0.93      0.93      0.93      3584
+ORG       0.89      0.92      0.90      3370</p>
 
 <p>micro avg       0.92      0.92      0.92     10494
 macro avg       0.92      0.92      0.92     10494</p>
@@ -930,12 +909,11 @@ macro avg       0.92      0.92      0.92     10494</p>
 ### Portuguese
 Number of documents: 10000
 </code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>       precision    recall  f1-score   support
+<p>precision    recall  f1-score   support</p>
 
-  LOC       0.90      0.91      0.91      4819
-  PER       0.94      0.92      0.93      4184
-  ORG       0.84      0.88      0.86      3670
-</code></pre></div></div>
+<p>LOC       0.90      0.91      0.91      4819
+PER       0.94      0.92      0.93      4184
+ORG       0.84      0.88      0.86      3670</p>
 
 <p>micro avg       0.89      0.91      0.90     12673
 macro avg       0.90      0.91      0.90     12673</p>
@@ -943,12 +921,11 @@ macro avg       0.90      0.91      0.90     12673</p>
 ### Russian
 Number of documents: 10000
 </code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>       precision    recall  f1-score   support
+<p>precision    recall  f1-score   support</p>
 
-  PER       0.93      0.96      0.95      3574
-  LOC       0.87      0.89      0.88      4619
-  ORG       0.82      0.80      0.81      3858
-</code></pre></div></div>
+<p>PER       0.93      0.96      0.95      3574
+LOC       0.87      0.89      0.88      4619
+ORG       0.82      0.80      0.81      3858</p>
 
 <p>micro avg       0.87      0.88      0.88     12051
 macro avg       0.87      0.88      0.88     12051</p>
@@ -956,12 +933,11 @@ macro avg       0.87      0.88      0.88     12051</p>
 ### Spanish
 Number of documents: 10000
 </code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>       precision    recall  f1-score   support
+<p>precision    recall  f1-score   support</p>
 
-  PER       0.95      0.93      0.94      3891
-  ORG       0.86      0.88      0.87      3709
-  LOC       0.89      0.91      0.90      4553
-</code></pre></div></div>
+<p>PER       0.95      0.93      0.94      3891
+ORG       0.86      0.88      0.87      3709
+LOC       0.89      0.91      0.90      4553</p>
 
 <p>micro avg       0.90      0.91      0.90     12153
 macro avg       0.90      0.91      0.90     12153</p>
@@ -969,12 +945,11 @@ macro avg       0.90      0.91      0.90     12153</p>
 ### Swahili
 Number of documents: 1000
 </code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>       precision    recall  f1-score   support
+<p>precision    recall  f1-score   support</p>
 
-  ORG       0.82      0.85      0.83       349
-  PER       0.95      0.92      0.94       403
-  LOC       0.86      0.89      0.88       450
-</code></pre></div></div>
+<p>ORG       0.82      0.85      0.83       349
+PER       0.95      0.92      0.94       403
+LOC       0.86      0.89      0.88       450</p>
 
 <p>micro avg       0.88      0.89      0.88      1202
 macro avg       0.88      0.89      0.88      1202</p>
@@ -982,12 +957,11 @@ macro avg       0.88      0.89      0.88      1202</p>
 ### Tagalog
 Number of documents: 1000
 </code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>       precision    recall  f1-score   support
+<p>precision    recall  f1-score   support</p>
 
-  LOC       0.90      0.91      0.90       338
-  ORG       0.83      0.91      0.87       339
-  PER       0.96      0.93      0.95       350
-</code></pre></div></div>
+<p>LOC       0.90      0.91      0.90       338
+ORG       0.83      0.91      0.87       339
+PER       0.96      0.93      0.95       350</p>
 
 <p>micro avg       0.90      0.92      0.91      1027
 macro avg       0.90      0.92      0.91      1027</p>
@@ -995,12 +969,11 @@ macro avg       0.90      0.92      0.91      1027</p>
 ### Tamil
 Number of documents: 1000
 </code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>       precision    recall  f1-score   support
+<p>precision    recall  f1-score   support</p>
 
-  PER       0.90      0.92      0.91       392
-  ORG       0.77      0.76      0.76       370
-  LOC       0.78      0.81      0.79       421
-</code></pre></div></div>
+<p>PER       0.90      0.92      0.91       392
+ORG       0.77      0.76      0.76       370
+LOC       0.78      0.81      0.79       421</p>
 
 <p>micro avg       0.82      0.83      0.82      1183
 macro avg       0.82      0.83      0.82      1183</p>
@@ -1008,12 +981,11 @@ macro avg       0.82      0.83      0.82      1183</p>
 ### Telugu
 Number of documents: 1000
 </code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>       precision    recall  f1-score   support
+<p>precision    recall  f1-score   support</p>
 
-  ORG       0.67      0.55      0.61       347
-  LOC       0.78      0.87      0.82       453
-  PER       0.73      0.86      0.79       393
-</code></pre></div></div>
+<p>ORG       0.67      0.55      0.61       347
+LOC       0.78      0.87      0.82       453
+PER       0.73      0.86      0.79       393</p>
 
 <p>micro avg       0.74      0.77      0.76      1193
 macro avg       0.73      0.77      0.75      1193</p>
@@ -1021,12 +993,11 @@ macro avg       0.73      0.77      0.75      1193</p>
 ### Thai
 Number of documents: 10000
 </code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>       precision    recall  f1-score   support
+<p>precision    recall  f1-score   support</p>
 
-  LOC       0.63      0.76      0.69      3928
-  PER       0.78      0.83      0.80      6537
-  ORG       0.59      0.59      0.59      4257
-</code></pre></div></div>
+<p>LOC       0.63      0.76      0.69      3928
+PER       0.78      0.83      0.80      6537
+ORG       0.59      0.59      0.59      4257</p>
 
 <p>micro avg       0.68      0.74      0.71     14722
 macro avg       0.68      0.74      0.71     14722</p>
@@ -1034,12 +1005,11 @@ macro avg       0.68      0.74      0.71     14722</p>
 ### Turkish
 Number of documents: 10000
 </code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>       precision    recall  f1-score   support
+<p>precision    recall  f1-score   support</p>
 
-  PER       0.94      0.94      0.94      4337
-  ORG       0.88      0.89      0.88      4094
-  LOC       0.90      0.92      0.91      4929
-</code></pre></div></div>
+<p>PER       0.94      0.94      0.94      4337
+ORG       0.88      0.89      0.88      4094
+LOC       0.90      0.92      0.91      4929</p>
 
 <p>micro avg       0.90      0.92      0.91     13360
 macro avg       0.91      0.92      0.91     13360</p>
@@ -1047,12 +1017,11 @@ macro avg       0.91      0.92      0.91     13360</p>
 ### Urdu
 Number of documents: 1000
 </code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>       precision    recall  f1-score   support
+<p>precision    recall  f1-score   support</p>
 
-  LOC       0.90      0.95      0.93       352
-  PER       0.96      0.96      0.96       333
-  ORG       0.91      0.90      0.90       326
-</code></pre></div></div>
+<p>LOC       0.90      0.95      0.93       352
+PER       0.96      0.96      0.96       333
+ORG       0.91      0.90      0.90       326</p>
 
 <p>micro avg       0.92      0.94      0.93      1011
 macro avg       0.92      0.94      0.93      1011</p>
@@ -1060,12 +1029,11 @@ macro avg       0.92      0.94      0.93      1011</p>
 ### Vietnamese
 Number of documents: 10000
 </code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>       precision    recall  f1-score   support
+<p>precision    recall  f1-score   support</p>
 
-  ORG       0.86      0.87      0.86      3579
-  LOC       0.88      0.91      0.90      3811
-  PER       0.92      0.93      0.93      3717
-</code></pre></div></div>
+<p>ORG       0.86      0.87      0.86      3579
+LOC       0.88      0.91      0.90      3811
+PER       0.92      0.93      0.93      3717</p>
 
 <p>micro avg       0.89      0.90      0.90     11107
 macro avg       0.89      0.90      0.90     11107</p>
@@ -1073,12 +1041,11 @@ macro avg       0.89      0.90      0.90     11107</p>
 ### Yoruba
 Number of documents: 100
 </code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>       precision    recall  f1-score   support
+<p>precision    recall  f1-score   support</p>
 
-  LOC       0.54      0.72      0.62        36
-  ORG       0.58      0.31      0.41        35
-  PER       0.77      1.00      0.87        36
-</code></pre></div></div>
+<p>LOC       0.54      0.72      0.62        36
+ORG       0.58      0.31      0.41        35
+PER       0.77      1.00      0.87        36</p>
 
 <p>micro avg       0.64      0.68      0.66       107
 macro avg       0.63      0.68      0.63       107</p>
@@ -1090,7 +1057,7 @@ macro avg       0.63      0.68      0.63       107</p>
 
 <script>
 
-
+/* 
 jQuery(document).ready(function(){  
     $( ".scala-button" ).click(function() {
         $(this).closest( ".tabs-box" ).find(".scala-button").removeClass('code-selector-un-active').addClass( "code-selector-active" );        
@@ -1130,34 +1097,248 @@ jQuery(document).ready(function(){
         $(this).closest( ".tabs-box" ).find( ".language-python, .language-scala" ).hide();
         $(this).closest( ".tabs-box" ).find( ".nlu-block" ).show();
     });
-});
+}); */
 
-function togglePython1() {
+/* function togglePython1() {
 
     //set current button to active class and remove unactive class
     $( ".python-button" ).addClass( "code-selector-active" );
 
 
     //toggle language snippets
-    $( ".tabs-box .language-python" ).show() 
-    $( ".tabs-box .nlu-block" ).hide()
-    $( ".tabs-box .language-scala" ).hide()
+    $( ".tabs-box .language-python" ).show();
+    $( ".tabs-box .nlu-block" ).hide();
+    $( ".tabs-box .language-scala" ).hide();
 }
 
 function defer(method) { //wait until jquery ready
     if (window.jQuery) {
         method();
     } else {
-        setTimeout(function() { defer(method) }, 15);
+        setTimeout(function() { defer(method); }, 15);
     }
 }
 
 defer(function () { // load inital language
-    togglePython1()
-});
+    togglePython1();
+}); */
 
 
+if((document.querySelectorAll('.model-wrap').length !== 0) || (document.querySelectorAll('.tabs-new').length !== 0)) {
 
+    let tabLi = document.querySelectorAll('.tabs-new .tab-li');
+
+    if((document.querySelectorAll('.model-wrap').length !== 0)) {
+        tabLi = document.querySelectorAll('.model-wrap .tab-li');
+    } 
+    
+    let tabLiTopF = document.querySelectorAll('.top_tab_li'),
+        pythonInner = document.querySelectorAll('.python-inner');
+
+    tabLiTopF.forEach(e => {        
+        e.nextElementSibling.classList.add('active');
+    });
+    pythonInner.forEach(e => {
+        e.firstElementChild.classList.remove('language-python');
+    });
+
+    tabLi.forEach(element => {
+        element.addEventListener('click', function(e) {
+            e.preventDefault();
+            let tabAttribute = element.getAttribute('data-type'),
+                tabLiInner = element.parentNode.querySelectorAll('.tab-li'),
+                tabBoxInner = element.parentNode.parentNode.parentNode.querySelectorAll('.highlighter-rouge');
+            
+            //remove active class from NLU
+            tabBoxInner.forEach(item => {
+                item.classList.remove('active');
+                if(item.classList.contains('nlu-block')) {
+                    item.classList.remove('language-python');
+                }  
+                
+            });
+            tabLiInner.forEach(el => {
+                el.classList.remove('active');
+                el.classList.remove('code-selector-active');
+            });
+            element.classList.add('active');
+    
+            //add active class
+            switch (tabAttribute) {
+                case "python":
+                    tabBoxInner.forEach(item => {
+                        if(item.classList.contains('language-python')) {
+                            item.classList.add('active');
+                        }                    
+                    });
+                    break;
+                case "scala":
+                    tabBoxInner.forEach(item => {
+                        if(item.classList.contains('language-scala')) {
+                            item.classList.add('active');
+                        }                    
+                    });
+                  break;
+                  case "nlu":
+                    tabBoxInner.forEach(item => {
+                        if(item.classList.contains('nlu-block')) {
+                            item.classList.add('active');
+                        }                    
+                    });
+                  break;
+                default:              
+              }
+        });
+    });
+}
+
+//Second tabs
+if(document.querySelectorAll('.tab-li-second').length !== 0) {
+    let tabLi = document.querySelectorAll('.tab-li-second');
+
+    tabLi.forEach(element => {
+        element.addEventListener('click', function(e) {
+            e.preventDefault();
+            let tabAttribute = element.getAttribute('data-type'),
+                tabLiInner = element.parentNode.querySelectorAll('.tab-li-second'),
+                tabBoxInner = element.parentNode.parentNode.parentNode.querySelectorAll('.tabs-box-medic-inner');
+            
+
+            //remove active class
+            tabBoxInner.forEach(item => {
+                item.classList.remove('active');
+            });
+            tabLiInner.forEach(el => {
+                el.classList.remove('active');
+            });
+            element.classList.add('active');
+    
+            //add active class
+            switch (tabAttribute) {
+                case "python":
+                    tabBoxInner.forEach(item => {
+                        if(item.classList.contains('language-python')) {
+                            item.classList.add('active');
+                        }                    
+                    });
+                    break;
+                case "scala":
+                    tabBoxInner.forEach(item => {
+                        if(item.classList.contains('language-scala')) {
+                            item.classList.add('active');
+                        }                    
+                    });
+                  break;
+                default:              
+              }
+        });
+    });
+}
+
+//Third tabs
+if(document.querySelectorAll('.tab-li-inner').length !== 0) {
+
+    let tabLiSecond = document.querySelectorAll('.tab-li-inner'),
+        tabLiTop = document.querySelectorAll('.toptab-second'),
+        tabLi = document.querySelectorAll('.toptab-second p');
+
+
+    tabLiTop.forEach(e => {        
+        e.nextElementSibling.classList.add('active');
+    });
+
+    tabLi.forEach(e => {        
+        e.firstChild.classList.add('active');
+    });
+
+
+    tabLiSecond.forEach(element => {
+        element.addEventListener('click', function(e) {
+            e.preventDefault();
+            let tabAttributeSecond = element.getAttribute('data-type'),
+                tabLiInnerSecond = element.parentNode.querySelectorAll('.tab-li-inner'),
+                tabBoxInnerSecond = element.parentNode.parentNode.parentNode.querySelectorAll('.tabs-box-medic-inner-second');
+            
+            //remove active class
+            tabBoxInnerSecond.forEach(item => {
+                item.classList.remove('active');
+            });
+            tabLiInnerSecond.forEach(el => {
+                el.classList.remove('active');
+            });
+            element.classList.add('active');
+    
+            //add active class
+            switch (tabAttributeSecond) {
+                case "medical":
+                    tabBoxInnerSecond.forEach(item => {
+                        if(item.classList.contains('language-medical')) {
+                            item.classList.add('active');
+                        }                    
+                    });
+                    break;
+                case "finance":
+                    tabBoxInnerSecond.forEach(item => {
+                        if(item.classList.contains('language-finance')) {
+                            item.classList.add('active');
+                        }                    
+                    });
+                  break;
+                case "legal":
+                tabBoxInnerSecond.forEach(item => {
+                    if(item.classList.contains('language-legal')) {
+                        item.classList.add('active');
+                    }                    
+                });
+                break;
+                default:              
+              }
+        });
+    });
+}
+
+//Forth tabs
+if(document.querySelectorAll('.tab-jsl').length !== 0) {
+    let tabLiForth = document.querySelectorAll('.tab-jsl');
+
+    tabLiForth.forEach(element => {
+        element.addEventListener('click', function(e) {
+            e.preventDefault();
+            let tabAttribute = element.getAttribute('data-type'),
+                tabLiInner = element.parentNode.querySelectorAll('.tab-jsl'),
+                tabBoxInner = element.parentNode.parentNode.parentNode.querySelectorAll('.python-inner');
+            
+
+            //remove active class
+            tabBoxInner.forEach(item => {
+                item.classList.remove('active');
+            });
+            tabLiInner.forEach(el => {
+                el.classList.remove('active');
+            });
+            element.classList.add('active');
+    
+            //add active class
+            switch (tabAttribute) {
+                case "spark-nlp-jsl":
+                    tabBoxInner.forEach(item => {
+                        if(item.classList.contains('python-johnsnowlabs')) {
+                            item.classList.add('active');
+                        }                    
+                    });
+                    break;
+                case "johnsnowlabs":
+                    tabBoxInner.forEach(item => {
+                        if(item.classList.contains('python-spark-nlp-jsl')) {
+                            item.classList.add('active');
+                        }                    
+                    });
+                  break;
+                default:              
+              }
+        });
+    });
+}
 
 </script>
 
@@ -1238,6 +1419,31 @@ hr.code-selector-underlie {
     });
   });
 })();
+
+$(document).ready(function () {
+
+  /* Versions Pagination*/
+  $('.pagination_big').owlCarousel({
+      margin:10,
+      nav:true,
+      dots:false,
+      responsive:{
+          0:{
+              items:3
+          },
+          400:{
+              items:4
+          },
+          500:{
+              items:6
+          },
+          1600:{
+              items:11
+          }
+      }
+  });
+});
+
 </script>
 </div><section class="page__comments d-print-none"></section></article><!-- start custom main bottom snippet -->
 
@@ -1270,7 +1476,7 @@ jQuery(document).ready(function($) {
       if (jQuery(window).width() <= 1023)
       {
         jQuery('.page__sidebar').toggleClass('open'); 
-      jQuery('.demopage-sidemenu').toggleClass('open');
+      jQuery('.demomenu').toggleClass('open');
       }
   });
   jQuery('.toc--ellipsis a').click(function(e) {
@@ -1284,7 +1490,7 @@ jQuery(document).ready(function($) {
 });
 
 /*TABS*/
-function openTabCall(cityName){
+/* function openTabCall(cityName){
   // Declare all variables
   var i, tabcontent, tablinks;
 
@@ -1307,10 +1513,10 @@ function openTabCall(cityName){
 function openTab(evt, cityName) {
   openTabCall(cityName);
   evt.currentTarget.className += " active";
-}
+} */
 
 /*OPen by URL*/
-$(document).ready(function () {  
+jQuery(document).ready(function () {  
   const tabName = (window.location.hash || '').replace('#', '');
   const tab = document.getElementById(tabName || 'opensource');
   if (tab) {
@@ -1318,20 +1524,69 @@ $(document).ready(function () {
   }
 });
 
-jQuery(document).ready(function(){
-	jQuery('.tab-item').click(function(event) {		
-		if (($(window).width() > 400) && ($(window).width() < 1199))
-	    {
-	    	jQuery('.tab-item').removeClass('open');
-	        jQuery(this).toggleClass('open');
-	    }
+//Accordion demos categories
+if(document.querySelector(".acc-top")) {
+  let acc = document.getElementsByClassName("acc-top"),
+    isResizeble = false;
+
+  if(!isResizeble && document.querySelector(".acc-top")) {
+      let accBody = document.querySelector('.acc-body li.active');
+      accBody.parentElement.style.maxHeight = accBody.parentElement.scrollHeight + 20 + "px";
+      accBody.parentElement.classList.add('open');
+      accBody.parentElement.previousElementSibling.classList.add('active');
+      isResizeble = true;
+  }
+
+for (let i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+      panel.classList.remove('open');
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + 20 + "px";
+      panel.classList.add('open');
+    }
   });
-  
+}
+}
 
-});
+
+//Show more in demos description
+if(document.querySelector('.tab-description')) {
+  let tabDescription = document.querySelectorAll('.tab-description');
+
+  tabDescription.forEach(element => {
+    let tabDescriptionInner = element.querySelector('.tab-description-inner');
+    if(element.offsetHeight < tabDescriptionInner.offsetHeight) {
+      element.classList.add('big-descr');
+    }
+  });
+
+  let showMore = document.querySelectorAll('.show_more');
+
+  showMore.forEach(element => {
+    element.addEventListener("click", function(e) {
+      e.preventDefault();
+      this.parentElement.parentElement.classList.remove('big-descr');
+      this.parentElement.parentElement.classList.add('big-descr-close');
+    });
+  });
+}
 
 
- 
+//disable Colab link
+if(document.querySelector('.btn.disable')) {
+  let btnDisable = document.querySelectorAll('.btn.disable');
+
+  btnDisable.forEach(element => {
+    element.addEventListener("click", function(e) {
+      e.preventDefault();
+    });
+  });
+}
+
 
 </script></div></div>
     </div><script>(function() {
@@ -1530,8 +1785,10 @@ jQuery(document).ready(function(){
   window.Lazyload.js(SOURCES.jquery, function() {
     function toc(options) {
       var $root = this, $window = $(window), $scrollTarget, $scroller, $tocUl = $('<ul class="toc toc--ellipsis"></ul>'), $tocLi, $headings, $activeLast, $activeCur,
-        selectors = 'h1,h2,h3', container = 'body', scrollTarget = window, scroller = 'html, body', disabled = false,
+        selectors = 'h1,h2,h3',  container = 'body', scrollTarget = window, scroller = 'html, body', disabled = false,
         headingsPos, scrolling = false, hasRendered = false, hasInit = false;
+
+        
 
       function setOptions(options) {
         var _options = options || {};
@@ -1573,7 +1830,8 @@ jQuery(document).ready(function(){
           $root.append($tocUl);
           $headings.each(function() {
             var $this = $(this);
-            $tocUl.append($('<li></li>').addClass('toc-' + $this.prop('tagName').toLowerCase())
+            $tocUl.append($('<li></li>').addClass('toc-' + $this.prop('tagName')
+              .toLowerCase() + ' ' + $this.prop('className'))
               .append($('<a></a>').text($this.text()).attr('href', '#' + $this.prop('id'))));
           });
           $tocLi = $tocUl.children('li');
@@ -1635,30 +1893,6 @@ jQuery(document).ready(function(){
 /*(function () {
 
 })();*/
-</script><script>
-  window.Lazyload.js(['https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js', 'https://cdn.bootcss.com/Chart.js/2.7.2/Chart.bundle.min.js'], function() {
-    var $canvas = null, $this = null, _ctx = null, _text = '';
-    $('.language-chart').each(function(){
-      $this = $(this);
-      $canvas = $('<canvas></canvas>');
-      _text = $this.text();
-      $this.text('').append($canvas);
-      _ctx = $canvas.get(0).getContext('2d');
-      (_ctx && _text) && (new Chart(_ctx, JSON.parse(_text)) && $this.attr('data-processed', true));
-    });
-  });
-</script><script type="text/x-mathjax-config">
-	var _config = { tex2jax: {
-		inlineMath: [['$','$'], ['\\(','\\)']]
-	}};_config.TeX = { equationNumbers: { autoNumber: "all" } };MathJax.Hub.Config(_config);
-</script>
-<script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML" async></script><script>
-  window.Lazyload.js('https://cdn.bootcss.com/mermaid/8.0.0-rc.8/mermaid.min.js', function() {
-    mermaid.initialize({
-      startOnLoad: true
-    });
-    mermaid.init(undefined, '.language-mermaid');
-  });
 </script>
     </div>
     <script>(function () {
